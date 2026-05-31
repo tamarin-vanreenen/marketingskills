@@ -59,8 +59,8 @@ Each rule in `alert-rules.json` is tagged with its `cadence`.
 
 ## Viewing it
 
-**Live (recommended):** once Pages is enabled (Settings → Pages → Source: *GitHub Actions*), the dashboard is at
-`https://<owner>.github.io/marketingskills/control-center/` and refreshes whenever the daily job pushes new data.
+**Live (recommended):** once Pages is enabled (Settings → Pages → Source: *GitHub Actions*), the workflow uploads the `control-center/` folder as the site root, so the dashboard is at
+`https://<owner>.github.io/marketingskills/` and refreshes whenever the daily job pushes new data.
 
 **Locally / handoff to a developer:** it reads JSON over HTTP, so serve it (don't open as a `file://`):
 
