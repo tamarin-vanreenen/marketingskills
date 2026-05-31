@@ -1,37 +1,44 @@
 {
-  "description": "Thresholds for the daily alert engine. The refresh job (skills/client-control-center-refresh) reads this file, evaluates each enabled rule against the Campaign Forge data, and writes data/alerts.json. Tune values here — no code changes needed.",
+  "description": "Thresholds + cadence for the Control Center alert engine. The DAILY refresh pulls lean account-level rows (1 per account) and runs the 'daily' rules — fast signal detection (CPA/ROAS/CTR/zero-conversion/health). The WEEKLY refresh pulls campaign-level rows (filtered to active/with-spend) and runs the 'weekly' rules — pacing, budget caps, per-campaign problems. Tune values here; no code changes needed. See build/evaluate.mjs.",
+  "cadences": {
+    "daily": "Account-level scan. Cheap (one row per account via account-level GAQL / Meta level=account). Powers fast signals: CPA/ROAS/CTR moves, zero-conversion spend, connection health.",
+    "weekly": "Campaign-level deep scan. Heavier (filtered to ENABLED + cost>0 to stay small). Powers pacing, budget-cap detection, and per-campaign zero-conversion / high-CPA / non-delivery."
+  },
   "categories": {
     "account_health": {
       "label": "Account health",
       "rules": [
-        { "id": "connection_error", "enabled": true, "severity": "critical", "desc": "API returns an auth/permission error for an account (e.g. 403 USER_PERMISSION_DENIED)." },
-        { "id": "account_disabled", "enabled": true, "severity": "critical", "desc": "Account status is not ACTIVE / is disabled or under billing hold." },
-        { "id": "no_active_campaigns", "enabled": true, "severity": "warning", "desc": "Account has zero ENABLED/ACTIVE campaigns." }
+        { "id": "connection_error", "cadence": "daily", "enabled": true, "severity": "warning", "desc": "Account returns an auth/permission error (e.g. 403 USER_PERMISSION_DENIED). Downgraded to info when the client has another live platform." },
+        { "id": "account_disabled", "cadence": "daily", "enabled": true, "severity": "critical", "desc": "Account status is not ACTIVE / disabled / billing hold." },
+        { "id": "no_active_campaigns", "cadence": "weekly", "enabled": true, "severity": "warning", "desc": "Account has zero ENABLED/ACTIVE campaigns." }
       ]
     },
     "spend_budget": {
       "label": "Spend & budget",
       "rules": [
-        { "id": "spend_spike", "enabled": true, "severity": "warning", "threshold_pct": 40, "desc": "Daily spend exceeds trailing 7-day average by more than threshold_pct." },
-        { "id": "spend_drop", "enabled": true, "severity": "warning", "threshold_pct": 50, "desc": "Daily spend falls below trailing 7-day average by more than threshold_pct." },
-        { "id": "budget_capped", "enabled": true, "severity": "info", "threshold_pct": 95, "desc": "Campaign daily spend is at/above threshold_pct of its daily budget (scaling opportunity)." },
-        { "id": "monthly_overpacing", "enabled": true, "severity": "warning", "threshold_pct": 110, "desc": "Month-to-date spend projects above threshold_pct of the monthly target." }
+        { "id": "spend_spike", "cadence": "daily", "enabled": true, "severity": "warning", "threshold_pct": 40, "desc": "Daily spend exceeds trailing 7-day average by more than threshold_pct (needs >=7 days history)." },
+        { "id": "spend_drop", "cadence": "daily", "enabled": true, "severity": "warning", "threshold_pct": 50, "desc": "Daily spend falls below trailing 7-day average by more than threshold_pct." },
+        { "id": "budget_capped", "cadence": "weekly", "enabled": true, "severity": "info", "threshold_pct": 95, "desc": "Campaign daily spend at/above threshold_pct of its daily budget (scaling opportunity)." },
+        { "id": "monthly_overpacing", "cadence": "weekly", "enabled": true, "severity": "warning", "threshold_pct": 110, "desc": "Month-to-date spend projects above threshold_pct of the monthly target." }
       ]
     },
     "performance": {
       "label": "Performance anomalies",
       "rules": [
-        { "id": "zero_conversion_spend", "enabled": true, "severity": "warning", "min_spend": 500, "desc": "Campaign spent more than min_spend (account currency) with 0 conversions over the window." },
-        { "id": "cpa_above_average", "enabled": true, "severity": "warning", "multiple": 3, "desc": "Campaign CPA exceeds the account's best/blended CPA by more than this multiple." },
-        { "id": "roas_drop", "enabled": true, "severity": "warning", "threshold_ratio": 0.7, "desc": "ROAS drops below threshold_ratio of the trailing 30-day baseline." },
-        { "id": "ctr_collapse", "enabled": true, "severity": "info", "threshold_ratio": 0.5, "desc": "CTR falls below threshold_ratio of the trailing baseline (creative fatigue)." }
+        { "id": "cpa_spike", "cadence": "daily", "enabled": true, "severity": "warning", "threshold_pct": 50, "desc": "Account CPA rises more than threshold_pct vs trailing baseline." },
+        { "id": "roas_drop", "cadence": "daily", "enabled": true, "severity": "warning", "threshold_ratio": 0.7, "desc": "ROAS drops below threshold_ratio of the trailing 30-day baseline." },
+        { "id": "roas_below_1", "cadence": "daily", "enabled": true, "severity": "warning", "desc": "Purchase account running below 1.0 ROAS (spending more than it returns)." },
+        { "id": "ctr_collapse", "cadence": "daily", "enabled": true, "severity": "info", "threshold_ratio": 0.5, "desc": "CTR falls below threshold_ratio of the trailing baseline (creative fatigue)." },
+        { "id": "zero_conversion_spend", "cadence": "daily", "enabled": true, "min_spend": { "USD": 300, "ZAR": 2000, "GBP": 250 }, "severity": "warning", "desc": "Account/campaign spent above min_spend with 0 conversions. Meta engagement objectives are downgraded to info." },
+        { "id": "cpa_above_group", "cadence": "daily", "enabled": true, "multiple": 2.2, "severity": "warning", "desc": "Cost per lead/conversion exceeds the client-group median by more than this multiple (e.g. a Rola dealer vs the dealer-group median)." },
+        { "id": "cpa_above_average", "cadence": "weekly", "enabled": true, "multiple": 3, "severity": "warning", "desc": "Campaign CPA exceeds the account's best/blended CPA by more than this multiple." }
       ]
     },
     "data_freshness": {
       "label": "Data freshness",
       "rules": [
-        { "id": "no_data_window", "enabled": true, "severity": "warning", "hours": 48, "desc": "No rows / zero activity returned for longer than this many hours while campaigns are enabled." },
-        { "id": "active_not_delivering", "enabled": true, "severity": "warning", "desc": "Campaign is ACTIVE/ENABLED but recorded 0 impressions over the window." }
+        { "id": "no_data_window", "cadence": "daily", "enabled": true, "hours": 48, "severity": "warning", "desc": "No rows / zero activity returned for longer than this many hours while campaigns are enabled." },
+        { "id": "active_not_delivering", "cadence": "weekly", "enabled": true, "severity": "warning", "desc": "Campaign is ACTIVE/ENABLED but recorded 0 impressions over the window." }
       ]
     }
   },

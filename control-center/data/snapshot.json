@@ -1,20 +1,41 @@
 {
   "agency": "ROI Solutions / Shift One Digital",
-  "lastRefresh": "2026-05-31T06:30:00Z",
+  "lastRefresh": "2026-05-31T06:30:00.000Z",
   "refreshWindow": "last_30d",
-  "dataRange": { "start": "2026-05-01", "end": "2026-05-30" },
-  "source": "Campaign Forge MCP (Google Ads + Meta)",
+  "dataRange": {
+    "start": "2026-05-01",
+    "end": "2026-05-30"
+  },
+  "source": "Campaign Forge MCP (Google Ads + Meta) · account-level daily + campaign-level weekly",
   "totals": {
     "clients": 27,
     "adAccounts": 39,
     "platforms": 2,
-    "accountsLive": 7,
-    "accountsPending": 31,
-    "accountsError": 1
+    "accountsLive": 35,
+    "accountsPending": 0,
+    "accountsError": 4
   },
   "liveSpend": [
-    { "currency": "ZAR", "spend": 147176.50, "label": "South Africa & UK clients" },
-    { "currency": "USD", "spend": 7119.52, "label": "International (Wines U)" }
+    {
+      "currency": "ZAR",
+      "spend": 808046.03,
+      "label": "South Africa & UK clients"
+    },
+    {
+      "currency": "USD",
+      "spend": 27905.02,
+      "label": "International (Wines U)"
+    },
+    {
+      "currency": "GBP",
+      "spend": 3247.48,
+      "label": "UK"
+    }
   ],
-  "alertCounts": { "critical": 1, "warning": 5, "info": 6, "total": 12 }
+  "alertCounts": {
+    "critical": 0,
+    "warning": 14,
+    "info": 8,
+    "total": 22
+  }
 }

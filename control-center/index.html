@@ -226,6 +226,12 @@
       const [sel, setSel] = useState(null);
 
       useEffect(() => {
+        // Standalone build: data is embedded on window.__CC_DATA__ so the file works offline.
+        if (window.__CC_DATA__) {
+          const d = window.__CC_DATA__;
+          setSnapshot(d.snapshot); setClients(d.clients.clients); setAlerts(d.alerts.alerts);
+          return;
+        }
         Promise.all([
           fetch("data/snapshot.json").then(r => r.json()),
           fetch("data/clients.json").then(r => r.json()),

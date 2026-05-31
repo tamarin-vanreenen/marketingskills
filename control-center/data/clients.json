@@ -12,14 +12,30 @@
           "accountName": "Rola Toyota",
           "accountId": "act_654180030801540",
           "status": "live",
-          "metrics": { "spend": 41863.13, "currency": "ZAR", "clicks": 34615, "impressions": 1074852, "leads": 451, "purchases": 0, "activeCampaigns": 6, "nonDeliveringCampaigns": 1 }
+          "metrics": {
+            "spend": 41864.13,
+            "currency": "ZAR",
+            "clicks": 34615,
+            "impressions": 1074144,
+            "ctr": 3.22,
+            "leads": 451,
+            "purchases": 0,
+            "cpa": 92.83
+          }
         },
         {
           "platform": "google",
           "accountName": "Rola Toyota V2",
           "accountId": "3055032494",
           "status": "live",
-          "metrics": { "spend": 14455.32, "currency": "ZAR", "conversions": 174.99, "activeCampaigns": 2, "budgetCappedCampaigns": 2 }
+          "metrics": {
+            "spend": 14455.32,
+            "currency": "ZAR",
+            "clicks": 0,
+            "impressions": 0,
+            "conversions": 174.99,
+            "cpa": 82.61
+          }
         }
       ]
     },
@@ -30,8 +46,39 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola Ford", "accountId": "act_488702299648563", "status": "pending" },
-        { "platform": "google", "accountName": "Rola Ford", "accountId": "5334039062", "loginCustomerId": "4046222147", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola Ford",
+          "accountId": "act_488702299648563",
+          "status": "live",
+          "metrics": {
+            "spend": 51466.57,
+            "currency": "ZAR",
+            "clicks": 24095,
+            "impressions": 916410,
+            "ctr": 2.63,
+            "leads": 212,
+            "purchases": 0,
+            "cpa": 242.77
+          }
+        },
+        {
+          "platform": "google",
+          "accountName": "Rola Ford",
+          "accountId": "5334039062",
+          "loginCustomerId": "4046222147",
+          "status": "live",
+          "metrics": {
+            "spend": 16972.05,
+            "currency": "ZAR",
+            "clicks": 1582,
+            "impressions": 19935,
+            "ctr": 7.94,
+            "conversions": 154,
+            "cpa": 110.21,
+            "roas": 2.61
+          }
+        }
       ]
     },
     {
@@ -41,8 +88,39 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola BYD", "accountId": "act_1669113287117527", "status": "pending" },
-        { "platform": "google", "accountName": "Rola BYD", "accountId": "7763008454", "loginCustomerId": "4046222147", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola BYD",
+          "accountId": "act_1669113287117527",
+          "status": "live",
+          "metrics": {
+            "spend": 10110.46,
+            "currency": "ZAR",
+            "clicks": 5292,
+            "impressions": 145332,
+            "ctr": 3.64,
+            "leads": 132,
+            "purchases": 0,
+            "cpa": 76.59
+          }
+        },
+        {
+          "platform": "google",
+          "accountName": "Rola BYD",
+          "accountId": "7763008454",
+          "loginCustomerId": "4046222147",
+          "status": "live",
+          "metrics": {
+            "spend": 5673.45,
+            "currency": "ZAR",
+            "clicks": 4952,
+            "impressions": 28134,
+            "ctr": 17.6,
+            "conversions": 82.99,
+            "cpa": 68.36,
+            "roas": 8.99
+          }
+        }
       ]
     },
     {
@@ -52,7 +130,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola VW", "accountId": "act_107289673194000", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola VW",
+          "accountId": "act_107289673194000",
+          "status": "live",
+          "metrics": {
+            "spend": 46197.48,
+            "currency": "ZAR",
+            "clicks": 28847,
+            "impressions": 802812,
+            "ctr": 3.59,
+            "leads": 510,
+            "purchases": 0,
+            "cpa": 90.58
+          }
+        }
       ]
     },
     {
@@ -62,7 +155,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola Stellantis", "accountId": "act_137170954", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola Stellantis",
+          "accountId": "act_137170954",
+          "status": "live",
+          "metrics": {
+            "spend": 20642.67,
+            "currency": "ZAR",
+            "clicks": 11584,
+            "impressions": 321231,
+            "ctr": 3.61,
+            "leads": 79,
+            "purchases": 0,
+            "cpa": 261.3
+          }
+        }
       ]
     },
     {
@@ -72,7 +180,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola Honda", "accountId": "act_1366251027806618", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola Honda",
+          "accountId": "act_1366251027806618",
+          "status": "live",
+          "metrics": {
+            "spend": 5978.71,
+            "currency": "ZAR",
+            "clicks": 3933,
+            "impressions": 43617,
+            "ctr": 9.02,
+            "leads": 73,
+            "purchases": 0,
+            "cpa": 81.9
+          }
+        }
       ]
     },
     {
@@ -82,7 +205,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola Volvo", "accountId": "act_3583743005264060", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola Volvo",
+          "accountId": "act_3583743005264060",
+          "status": "live",
+          "metrics": {
+            "spend": 5819.83,
+            "currency": "ZAR",
+            "clicks": 8622,
+            "impressions": 26513,
+            "ctr": 32.52,
+            "leads": 112,
+            "purchases": 0,
+            "cpa": 51.96
+          }
+        }
       ]
     },
     {
@@ -92,7 +230,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Rola Mahindra", "accountId": "act_1202501230752196", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rola Mahindra",
+          "accountId": "act_1202501230752196",
+          "status": "live",
+          "metrics": {
+            "spend": 33081.16,
+            "currency": "ZAR",
+            "clicks": 7850,
+            "impressions": 183931,
+            "ctr": 4.27,
+            "leads": 139,
+            "purchases": 0,
+            "cpa": 237.99
+          }
+        }
       ]
     },
     {
@@ -102,7 +255,21 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "google", "accountName": "RMS", "accountId": "3359820998", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "RMS",
+          "accountId": "3359820998",
+          "status": "live",
+          "metrics": {
+            "spend": 35083.68,
+            "currency": "ZAR",
+            "clicks": 2631,
+            "impressions": 49498,
+            "ctr": 5.32,
+            "conversions": 372.94,
+            "cpa": 94.07
+          }
+        }
       ]
     },
     {
@@ -117,9 +284,32 @@
           "accountName": "Brilla Ads",
           "accountId": "act_910715728689897",
           "status": "live",
-          "metrics": { "spend": 7119.52, "currency": "USD", "clicks": 22404, "impressions": 1182032, "purchases": 0, "activeCampaigns": 2 }
+          "metrics": {
+            "spend": 7119.52,
+            "currency": "USD",
+            "clicks": 22404,
+            "impressions": 1182033,
+            "ctr": 1.9,
+            "leads": 0,
+            "purchases": 0
+          }
         },
-        { "platform": "google", "accountName": "Brilla", "accountId": "8500124964", "loginCustomerId": "8500124964", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "Brilla",
+          "accountId": "8500124964",
+          "loginCustomerId": "8500124964",
+          "status": "live",
+          "metrics": {
+            "spend": 2809.73,
+            "currency": "USD",
+            "clicks": 1112,
+            "impressions": 29907,
+            "ctr": 3.72,
+            "conversions": 2,
+            "cpa": 1404.87
+          }
+        }
       ]
     },
     {
@@ -129,8 +319,36 @@
       "region": "INT",
       "currency": "USD",
       "platforms": [
-        { "platform": "meta", "accountName": "Zacc ads", "accountId": "act_636966098536340", "status": "pending" },
-        { "platform": "google", "accountName": "Zaccagnini", "accountId": "5525996674", "loginCustomerId": "5525996674", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Zacc ads",
+          "accountId": "act_636966098536340",
+          "status": "live",
+          "metrics": {
+            "spend": 4252.96,
+            "currency": "USD",
+            "clicks": 16693,
+            "impressions": 770934,
+            "ctr": 2.17,
+            "leads": 0,
+            "purchases": 0
+          }
+        },
+        {
+          "platform": "google",
+          "accountName": "Zaccagnini",
+          "accountId": "5525996674",
+          "loginCustomerId": "5525996674",
+          "status": "live",
+          "metrics": {
+            "spend": 3555.19,
+            "currency": "USD",
+            "clicks": 3597,
+            "impressions": 245827,
+            "ctr": 1.46,
+            "conversions": 0
+          }
+        }
       ]
     },
     {
@@ -140,8 +358,36 @@
       "region": "INT",
       "currency": "USD",
       "platforms": [
-        { "platform": "meta", "accountName": "Varvaglione ads", "accountId": "act_2275509956590286", "status": "pending" },
-        { "platform": "google", "accountName": "Varvaglione", "accountId": "4659206815", "loginCustomerId": "4659206815", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Varvaglione ads",
+          "accountId": "act_2275509956590286",
+          "status": "live",
+          "metrics": {
+            "spend": 913.41,
+            "currency": "USD",
+            "clicks": 4028,
+            "impressions": 221920,
+            "ctr": 1.82,
+            "leads": 0,
+            "purchases": 0
+          }
+        },
+        {
+          "platform": "google",
+          "accountName": "Varvaglione",
+          "accountId": "4659206815",
+          "loginCustomerId": "4659206815",
+          "status": "live",
+          "metrics": {
+            "spend": 178.5,
+            "currency": "USD",
+            "clicks": 116,
+            "impressions": 2840,
+            "ctr": 4.08,
+            "conversions": 0
+          }
+        }
       ]
     },
     {
@@ -151,8 +397,36 @@
       "region": "INT",
       "currency": "USD",
       "platforms": [
-        { "platform": "meta", "accountName": "Rugger Ads", "accountId": "act_834884689206608", "status": "pending" },
-        { "platform": "google", "accountName": "Ruggeri", "accountId": "9492538344", "loginCustomerId": "9492538344", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Rugger Ads",
+          "accountId": "act_834884689206608",
+          "status": "live",
+          "metrics": {
+            "spend": 996.11,
+            "currency": "USD",
+            "clicks": 2554,
+            "impressions": 106835,
+            "ctr": 2.39,
+            "leads": 0,
+            "purchases": 0
+          }
+        },
+        {
+          "platform": "google",
+          "accountName": "Ruggeri",
+          "accountId": "9492538344",
+          "loginCustomerId": "9492538344",
+          "status": "live",
+          "metrics": {
+            "spend": 750.79,
+            "currency": "USD",
+            "clicks": 1111,
+            "impressions": 110627,
+            "ctr": 1,
+            "conversions": 0
+          }
+        }
       ]
     },
     {
@@ -162,8 +436,36 @@
       "region": "INT",
       "currency": "USD",
       "platforms": [
-        { "platform": "meta", "accountName": "Saracco Ads", "accountId": "act_1687117342597853", "status": "pending" },
-        { "platform": "google", "accountName": "Saracco", "accountId": "8353402368", "loginCustomerId": "8353402368", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Saracco Ads",
+          "accountId": "act_1687117342597853",
+          "status": "live",
+          "metrics": {
+            "spend": 2945.88,
+            "currency": "USD",
+            "clicks": 5581,
+            "impressions": 338641,
+            "ctr": 1.65,
+            "leads": 0,
+            "purchases": 0
+          }
+        },
+        {
+          "platform": "google",
+          "accountName": "Saracco",
+          "accountId": "8353402368",
+          "loginCustomerId": "8353402368",
+          "status": "live",
+          "metrics": {
+            "spend": 1427.79,
+            "currency": "USD",
+            "clicks": 780,
+            "impressions": 30600,
+            "ctr": 2.55,
+            "conversions": 0
+          }
+        }
       ]
     },
     {
@@ -178,9 +480,24 @@
           "accountName": "Oasis Life Villages",
           "accountId": "act_2785927998334609",
           "status": "live",
-          "metrics": { "spend": 40863.35, "currency": "ZAR", "leads": 559, "activeCampaigns": 3 }
+          "metrics": {
+            "spend": 40863.35,
+            "currency": "ZAR",
+            "clicks": 21165,
+            "impressions": 603087,
+            "ctr": 3.51,
+            "leads": 559,
+            "purchases": 0,
+            "cpa": 73.1
+          }
         },
-        { "platform": "google", "accountName": "Oasis Sunningdale", "accountId": "6165432972", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "Oasis Sunningdale",
+          "accountId": "6165432972",
+          "status": "error",
+          "error": "USER_PERMISSION_DENIED via account-level GAQL — needs MCC manager login-customer-id mapping"
+        }
       ]
     },
     {
@@ -190,7 +507,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Century City Developments", "accountId": "act_567744771497411", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Century City Developments",
+          "accountId": "act_567744771497411",
+          "status": "live",
+          "metrics": {
+            "spend": 23529.2,
+            "currency": "ZAR",
+            "clicks": 9767,
+            "impressions": 309380,
+            "ctr": 3.16,
+            "leads": 322,
+            "purchases": 0,
+            "cpa": 73.07
+          }
+        }
       ]
     },
     {
@@ -200,7 +532,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Burgundy Developments", "accountId": "act_939581391480635", "status": "pending" }
+        {
+          "platform": "meta",
+          "accountName": "Burgundy Developments",
+          "accountId": "act_939581391480635",
+          "status": "live",
+          "metrics": {
+            "spend": 60954.31,
+            "currency": "ZAR",
+            "clicks": 21690,
+            "impressions": 1196716,
+            "ctr": 1.81,
+            "leads": 1087,
+            "purchases": 0,
+            "cpa": 56.08
+          }
+        }
       ]
     },
     {
@@ -210,7 +557,21 @@
       "region": "UK",
       "currency": "GBP",
       "platforms": [
-        { "platform": "google", "accountName": "Park Place", "accountId": "6162364162", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "Park Place",
+          "accountId": "6162364162",
+          "status": "live",
+          "metrics": {
+            "spend": 3247.48,
+            "currency": "GBP",
+            "clicks": 561,
+            "impressions": 3640,
+            "ctr": 15.41,
+            "conversions": 40,
+            "cpa": 81.19
+          }
+        }
       ]
     },
     {
@@ -225,14 +586,32 @@
           "accountName": "Bloomable (Pty) Ltd",
           "accountId": "act_10153187444261829",
           "status": "live",
-          "metrics": { "spend": 4439.51, "currency": "ZAR", "clicks": 2687, "impressions": 106315, "purchases": 0, "leads": 0, "activeCampaigns": 1 }
+          "metrics": {
+            "spend": 4439.51,
+            "currency": "ZAR",
+            "clicks": 2687,
+            "impressions": 106315,
+            "ctr": 2.53,
+            "leads": 0,
+            "purchases": 0
+          }
         },
         {
           "platform": "google",
           "accountName": "Bloomable (Pty) Ltd",
           "accountId": "2106453504",
-          "status": "error",
-          "error": "USER_PERMISSION_DENIED (403) — manager login-customer-id required to pull data"
+          "status": "live",
+          "error": "USER_PERMISSION_DENIED (403) — manager login-customer-id required to pull data",
+          "metrics": {
+            "spend": 249266.38,
+            "currency": "ZAR",
+            "clicks": 26959,
+            "impressions": 439483,
+            "ctr": 6.13,
+            "conversions": 3311.63,
+            "cpa": 75.27,
+            "roas": 13.43
+          }
         }
       ]
     },
@@ -248,9 +627,24 @@
           "accountName": "Computer Mania",
           "accountId": "act_1860624781464160",
           "status": "live",
-          "metrics": { "spend": 30786.50, "currency": "ZAR", "clicks": 13370, "impressions": 1964605, "purchases": 107, "activeCampaigns": 7 }
+          "metrics": {
+            "spend": 30787.16,
+            "currency": "ZAR",
+            "clicks": 13370,
+            "impressions": 1964630,
+            "ctr": 0.68,
+            "purchases": 107,
+            "cpa": 287.73,
+            "roas": 17.1
+          }
         },
-        { "platform": "google", "accountName": "Computer Mania 1", "accountId": "7605747711", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "Computer Mania 1",
+          "accountId": "7605747711",
+          "status": "error",
+          "error": "USER_PERMISSION_DENIED via account-level GAQL — needs MCC manager login-customer-id mapping"
+        }
       ]
     },
     {
@@ -260,13 +654,35 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "meta", "accountName": "Heriz Gallery", "accountId": "act_478332109665477", "status": "pending" },
+        {
+          "platform": "meta",
+          "accountName": "Heriz Gallery",
+          "accountId": "act_478332109665477",
+          "status": "live",
+          "metrics": {
+            "spend": 10301.95,
+            "currency": "ZAR",
+            "clicks": 14401,
+            "impressions": 809556,
+            "ctr": 1.78,
+            "purchases": 5,
+            "cpa": 2060.39,
+            "roas": 0.27
+          }
+        },
         {
           "platform": "google",
           "accountName": "Heriz Gallery",
           "accountId": "4557347423",
           "status": "live",
-          "metrics": { "spend": 14768.69, "currency": "ZAR", "conversions": 347.85, "activeCampaigns": 6, "zeroConversionCampaigns": 2, "highCpaCampaigns": 2 }
+          "metrics": {
+            "spend": 14768.69,
+            "currency": "ZAR",
+            "clicks": 0,
+            "impressions": 0,
+            "conversions": 347.85,
+            "cpa": 42.46
+          }
         }
       ]
     },
@@ -277,7 +693,21 @@
       "region": "INT",
       "currency": "USD",
       "platforms": [
-        { "platform": "google", "accountName": "TagMarshal", "accountId": "4731173649", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "TagMarshal",
+          "accountId": "4731173649",
+          "status": "live",
+          "metrics": {
+            "spend": 2955.14,
+            "currency": "USD",
+            "clicks": 1570,
+            "impressions": 17098,
+            "ctr": 9.18,
+            "conversions": 19.46,
+            "cpa": 151.86
+          }
+        }
       ]
     },
     {
@@ -287,7 +717,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "google", "accountName": "WEG Africa", "accountId": "9927880578", "loginCustomerId": "9927880578", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "WEG Africa",
+          "accountId": "9927880578",
+          "loginCustomerId": "9927880578",
+          "status": "live",
+          "metrics": {
+            "spend": 64633.54,
+            "currency": "ZAR",
+            "clicks": 24810,
+            "impressions": 406992,
+            "ctr": 6.1,
+            "conversions": 95.5,
+            "cpa": 676.79
+          }
+        }
       ]
     },
     {
@@ -297,7 +742,13 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "google", "accountName": "Politically Aweh NPC", "accountId": "5238513264", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "Politically Aweh NPC",
+          "accountId": "5238513264",
+          "status": "error",
+          "error": "USER_PERMISSION_DENIED via account-level GAQL — needs MCC manager login-customer-id mapping"
+        }
       ]
     },
     {
@@ -307,7 +758,13 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "google", "accountName": "CaCellular", "accountId": "3489098103", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "CaCellular",
+          "accountId": "3489098103",
+          "status": "error",
+          "error": "USER_PERMISSION_DENIED via account-level GAQL — needs MCC manager login-customer-id mapping"
+        }
       ]
     },
     {
@@ -317,7 +774,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "google", "accountName": "Merchant Factors", "accountId": "9075610850", "loginCustomerId": "9075610850", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "Merchant Factors",
+          "accountId": "9075610850",
+          "loginCustomerId": "9075610850",
+          "status": "live",
+          "metrics": {
+            "spend": 9522.22,
+            "currency": "ZAR",
+            "clicks": 445,
+            "impressions": 4265,
+            "ctr": 10.43,
+            "conversions": 76,
+            "cpa": 125.29
+          }
+        }
       ]
     },
     {
@@ -327,7 +799,22 @@
       "region": "ZA",
       "currency": "ZAR",
       "platforms": [
-        { "platform": "google", "accountName": "iconnix Pty Ltd", "accountId": "2546915225", "loginCustomerId": "2546915225", "status": "pending" }
+        {
+          "platform": "google",
+          "accountName": "iconnix Pty Ltd",
+          "accountId": "2546915225",
+          "loginCustomerId": "2546915225",
+          "status": "live",
+          "metrics": {
+            "spend": 11634.21,
+            "currency": "ZAR",
+            "clicks": 982,
+            "impressions": 11338,
+            "ctr": 8.66,
+            "conversions": 27,
+            "cpa": 430.9
+          }
+        }
       ]
     }
   ]

@@ -1,0 +1,62 @@
+{
+  "_comment": "Campaign-level alerts from the WEEKLY deep scan (pacing, budget caps, zero-conversion campaigns, non-delivery). These need per-campaign data that is too large to pull daily, so they refresh weekly. The evaluator merges these with the daily account-level alerts.",
+  "generatedAt": "2026-05-31",
+  "alerts": [
+    {
+      "id": "w-heriz-competitor-zeroconv", "clientId": "heriz-gallery", "client": "Heriz Gallery", "platform": "google", "account": "4557347423",
+      "category": "performance", "severity": "warning", "source": "live", "cadence": "weekly",
+      "title": "Campaign spending with zero conversions",
+      "detail": "'2022-Heriz Gallery - Search - Competitor - Phrase' spent R2,957.97 over 30 days with 0 conversions (1,019 clicks). Competitor-term traffic is not converting.",
+      "metric": "R2,957.97 · 0 conv · 1,019 clicks",
+      "action": "Review search terms / landing page or pause the competitor campaign.", "detectedAt": "2026-05-31"
+    },
+    {
+      "id": "w-heriz-furniture-pmax-cpa", "clientId": "heriz-gallery", "client": "Heriz Gallery", "platform": "google", "account": "4557347423",
+      "category": "performance", "severity": "warning", "source": "live", "cadence": "weekly",
+      "title": "Campaign CPA far above account average",
+      "detail": "'Furniture-Performance Max | 13-05-2026' converting at R741 CPA vs the account's best at ~R16 (≈45×). R1,824 for 2.46 conversions.",
+      "metric": "R741 CPA vs ~R16 best",
+      "action": "Check PMax asset group / signals and conversion tracking; lower budget until CPA stabilises.", "detectedAt": "2026-05-31"
+    },
+    {
+      "id": "w-heriz-refurbished-cpa", "clientId": "heriz-gallery", "client": "Heriz Gallery", "platform": "google", "account": "4557347423",
+      "category": "performance", "severity": "warning", "source": "live", "cadence": "weekly",
+      "title": "High CPA on Refurbished Rugs",
+      "detail": "'Refurbished Rugs | Search | 30-1-26' spent R3,001 for 6.23 conversions (R481 CPA) — well above the R16 generic campaign.",
+      "metric": "R481 CPA · R3,001 spend",
+      "action": "Tighten match types/negatives or reallocate to the BOF generic campaign.", "detectedAt": "2026-05-31"
+    },
+    {
+      "id": "w-rolatoyota-brand-budgetcap", "clientId": "rola-toyota", "client": "Rola Toyota", "platform": "google", "account": "3055032494",
+      "category": "spend_budget", "severity": "info", "source": "live", "cadence": "weekly",
+      "title": "Budget-constrained (scaling opportunity)",
+      "detail": "'Search - Brand (R6000)' runs at ~R247/day vs a R250 cap (99%) at a strong R50 CPA (148 conversions) — likely leaving converting traffic on the table.",
+      "metric": "~99% budget utilisation · R50 CPA",
+      "action": "Consider raising the daily budget.", "detectedAt": "2026-05-31"
+    },
+    {
+      "id": "w-rolatoyota-newveh-budgetcap", "clientId": "rola-toyota", "client": "Rola Toyota", "platform": "google", "account": "3055032494",
+      "category": "spend_budget", "severity": "info", "source": "live", "cadence": "weekly",
+      "title": "Budget-constrained at higher CPA",
+      "detail": "'Search - New Vehicles (R9000)' runs at ~R235/day vs a R236 cap (99%) but at R261 CPA (27 conversions). Capped, but weaker efficiency than Brand.",
+      "metric": "~99% budget utilisation · R261 CPA",
+      "action": "Improve efficiency before scaling.", "detectedAt": "2026-05-31"
+    },
+    {
+      "id": "w-rolatoyota-bredasdorp-nodelivery", "clientId": "rola-toyota", "client": "Rola Toyota", "platform": "meta", "account": "act_654180030801540",
+      "category": "data_freshness", "severity": "warning", "source": "live", "cadence": "weekly",
+      "title": "Active campaign not delivering",
+      "detail": "'Rola Toyota Bredasdorp Giveaway_Awareness_April_1000' recorded 0 impressions and R0 spend over 30 days while appearing live.",
+      "metric": "0 impressions · R0 spend (30d)",
+      "action": "Check campaign status, schedule and budget; archive if intentionally off.", "detectedAt": "2026-05-31"
+    },
+    {
+      "id": "w-rolatoyota-v2-experiment-noimp", "clientId": "rola-toyota", "client": "Rola Toyota", "platform": "google", "account": "3055032494",
+      "category": "data_freshness", "severity": "info", "source": "live", "cadence": "weekly",
+      "title": "Enabled experiment with no impressions",
+      "detail": "'Search - Brand (R7,500) Experiment' is ENABLED but recorded 0 impressions — experiment may not be serving or the split is misconfigured.",
+      "metric": "ENABLED · 0 impressions",
+      "action": "Verify the experiment schedule and traffic split.", "detectedAt": "2026-05-31"
+    }
+  ]
+}

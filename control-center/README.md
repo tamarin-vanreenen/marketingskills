@@ -15,18 +15,28 @@ A live control center for **ROI Solutions / Shift One Digital** that merges ever
 The browser cannot call MCP servers directly, so a **scheduled Claude session** does the work:
 
 ```
- ┌─ daily trigger (Claude Code on the web) ─────────────────────────┐
- │ 1. run skill: client-control-center-refresh                      │
- │ 2. pull Google Ads + Meta data from Campaign Forge MCP           │
- │ 3. evaluate alert-rules.json                                     │
- │ 4. write control-center/data/{clients,alerts,snapshot}.json      │
- │ 5. git commit + push  ──► triggers Pages deploy                  │
- │ 6. send digest to Slack + Gmail (MCP)                            │
+ ┌─ scheduled trigger (Claude Code on the web) ─────────────────────┐
+ │ 1. run skill: client-control-center-refresh (daily | weekly)     │
+ │ 2. collect rows from Campaign Forge MCP into build/*.json         │
+ │ 3. node build/evaluate.mjs  → data/*.json + standalone.html       │
+ │ 4. git commit + push  ──► triggers Pages deploy                  │
+ │ 5. send digest to Slack + Gmail (MCP)                            │
  └──────────────────────────────────────────────────────────────────┘
             │
             ▼
   GitHub Pages serves control-center/  ──►  always-current dashboard (shareable link)
 ```
+
+### Daily vs weekly (how we keep MCP responses small)
+
+A naive campaign-level pull is 60k+ characters per account. So the refresh runs in two modes:
+
+| Mode | Pull | Powers |
+|------|------|--------|
+| **Daily** | Account-level, **one row per account** (account-level GAQL / Meta `level=account`) | CPA / ROAS / CTR moves, zero-conversion spend, ROAS<1, cost-per-lead vs group, connection health |
+| **Weekly** | Campaign-level, **filtered to active + cost>0** | Budget pacing & caps, per-campaign zero-conversion / high-CPA, non-delivery |
+
+Each rule in `alert-rules.json` is tagged with its `cadence`.
 
 - **Engine:** [`skills/client-control-center-refresh/SKILL.md`](../skills/client-control-center-refresh/SKILL.md)
 - **Thresholds & delivery config:** [`alert-rules.json`](./alert-rules.json)
@@ -36,11 +46,15 @@ The browser cannot call MCP servers directly, so a **scheduled Claude session** 
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The dashboard (self-contained React via CDN; reads `data/*.json`). |
+| `index.html` | The dashboard (self-contained React via CDN; reads `data/*.json`, or embedded `window.__CC_DATA__`). |
+| `standalone.html` | Generated build with data **embedded** — opens offline by double-click, fully clickable. Hand this to anyone. |
 | `data/clients.json` | Canonical client roster + latest per-account metrics. |
 | `data/alerts.json` | Current alerts. |
 | `data/snapshot.json` | Totals, last-refresh timestamp, alert counts. |
-| `alert-rules.json` | Rule thresholds + Slack/email delivery config. |
+| `alert-rules.json` | Rule thresholds, **cadence (daily/weekly)**, + Slack/email delivery config. |
+| `build/accounts.live.json` | Collected account-level rows from the latest daily pull. |
+| `build/weekly-alerts.json` | Campaign-level alerts from the latest weekly pull. |
+| `build/evaluate.mjs` | Evaluator: rows + rules → `data/*.json` + `standalone.html`. |
 
 ## Viewing it
 
@@ -65,6 +79,6 @@ In **Claude Code on the web**, add a scheduled trigger on this repo that runs, e
 
 That session pulls fresh data, evaluates the rules, pushes the JSON (which redeploys Pages), and sends the Slack + email digest. Tune cadence, thresholds, channel and recipient in `alert-rules.json`.
 
-## Seed data
+## Current snapshot
 
-The committed snapshot was pulled live from Campaign Forge on **2026-05-31** for the flagship/multi-platform clients (Bloomable, Brilla, Computer Mania, Rola Toyota, Heriz Gallery, Oasis). Other accounts show `pending` until the first full scheduled run fills them in. Real alerts already detected include a broken Bloomable Google Ads connection, zero-conversion spend and high CPAs on Heriz Gallery, budget-capped Rola Toyota search campaigns, and a non-delivering Rola Toyota Meta campaign.
+Pulled live from Campaign Forge on **2026-05-31**: **27 clients · 39 ad accounts (35 live, 4 needing MCC manager mapping) · 22 alerts** monitoring **R808k + $27.9k + £3.2k** of 30-day spend. Real signals detected include Heriz Gallery Meta at **0.27 ROAS** (losing money), the **Wines U Google accounts** (Zaccagnini, Saracco, Ruggeri, Brilla) spending with **near-zero conversions**, three **Rola dealers** at >2.5× the group median cost-per-lead, budget-capped Rola Toyota search campaigns, and a non-delivering Rola Toyota Meta campaign.
