@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Control Center — ROI Solutions</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    :root {
+      --bg: #0b0f17; --panel: #121826; --panel-2: #1a2233; --line: #243043;
+      --txt: #e6edf6; --muted: #8b9bb4; --accent: #4f8cff;
+      --crit: #ff5c6c; --warn: #ffb02e; --info: #45c4ff; --ok: #2bd576;
+      --chip-meta: #1877f2; --chip-google: #fbbc05;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--txt); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    .wrap { max-width: 1320px; margin: 0 auto; padding: 24px; }
+    header.top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .brand h1 { margin: 0; font-size: 22px; letter-spacing: .2px; }
+    .brand p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .refresh { text-align: right; font-size: 12px; color: var(--muted); }
+    .refresh b { color: var(--txt); }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+    .kpi .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .6px; }
+    .kpi .val { font-size: 28px; font-weight: 700; margin-top: 6px; }
+    .kpi .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .sev-dots { display: flex; gap: 10px; margin-top: 8px; font-size: 13px; }
+    .sev-dots span { display: inline-flex; align-items: center; gap: 5px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+    .dot.crit { background: var(--crit);} .dot.warn{background:var(--warn);} .dot.info{background:var(--info);} .dot.ok{background:var(--ok);}
+    .layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: 22px; align-items: start; }
+    @media (max-width: 980px){ .layout{ grid-template-columns: 1fr; } }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .panel h2 { margin: 0 0 14px; font-size: 15px; display:flex; align-items:center; gap:8px; }
+    .panel h2 .count { color: var(--muted); font-weight: 500; font-size: 13px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .filters input[type=text]{ flex:1; min-width: 140px; background: var(--panel-2); border:1px solid var(--line); color: var(--txt);
+      border-radius: 9px; padding: 8px 12px; font-size: 13px; }
+    .pill { background: var(--panel-2); border: 1px solid var(--line); color: var(--muted); border-radius: 999px;
+      padding: 6px 12px; font-size: 12px; cursor: pointer; user-select: none; }
+    .pill.active { color: var(--txt); border-color: var(--accent); background: rgba(79,140,255,.14); }
+    .alert { border: 1px solid var(--line); border-left-width: 4px; border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; background: var(--panel-2); }
+    .alert.crit { border-left-color: var(--crit);} .alert.warn{border-left-color: var(--warn);} .alert.info{border-left-color: var(--info);}
+    .alert .a-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+    .alert .a-title { font-weight: 650; font-size: 14px; }
+    .alert .a-client { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .alert .a-detail { font-size: 13px; color: #c4d0e2; margin: 8px 0; line-height: 1.45; }
+    .alert .a-metric { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--txt); background: rgba(255,255,255,.04);
+      border:1px solid var(--line); border-radius: 7px; padding: 4px 8px; display: inline-block; }
+    .alert .a-action { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+    .alert .a-action b { color: #cfe0ff; font-weight: 600; }
+    .badge { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; padding: 2px 7px; border-radius: 6px; font-weight: 700; }
+    .badge.live { background: rgba(43,213,118,.15); color: var(--ok); border:1px solid rgba(43,213,118,.4); }
+    .badge.sample { background: rgba(139,155,180,.12); color: var(--muted); border:1px solid var(--line); }
+    .cat-tag { font-size: 11px; color: var(--muted); }
+    .group { margin-bottom: 16px; }
+    .group .g-name { font-size: 12px; text-transform: uppercase; letter-spacing: .7px; color: var(--muted); margin: 4px 0 8px; }
+    .client { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 12px;
+      border: 1px solid var(--line); border-radius: 11px; background: var(--panel-2); margin-bottom: 8px; cursor: pointer; transition: border-color .15s; }
+    .client:hover { border-color: var(--accent); }
+    .client .c-left { display:flex; align-items:center; gap:11px; min-width:0; }
+    .hdot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+    .client .c-name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
+    .client .c-meta { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+    .chips { display:flex; gap:5px; }
+    .chip { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; border:1px solid var(--line); }
+    .chip.meta { color: #79b0ff; } .chip.google { color: #ffd766; }
+    .chip.err { color: var(--crit); border-color: rgba(255,92,108,.4); }
+    .c-right { display:flex; align-items:center; gap:10px; flex:none; }
+    .alertcount { font-size: 12px; color: var(--muted); }
+    .alertcount b.crit{color:var(--crit);} .alertcount b.warn{color:var(--warn);}
+    .drawer-bg { position: fixed; inset: 0; background: rgba(0,0,0,.55); display:flex; justify-content:flex-end; z-index: 50; }
+    .drawer { width: min(520px, 100%); height: 100%; background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; padding: 24px; }
+    .drawer .x { float: right; cursor: pointer; color: var(--muted); font-size: 22px; line-height: 1; }
+    .drawer h3 { margin: 0 0 2px; font-size: 20px; }
+    .drawer .sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+    .acct { border:1px solid var(--line); border-radius: 11px; padding: 13px; margin-bottom: 11px; background: var(--panel-2); }
+    .acct .a-top { display:flex; justify-content:space-between; align-items:center; }
+    .acct .mono { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--muted); }
+    .metrics { display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .metrics .m { background: rgba(255,255,255,.03); border:1px solid var(--line); border-radius:8px; padding:8px; }
+    .metrics .m .mk { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing:.4px; }
+    .metrics .m .mv { font-size: 15px; font-weight: 650; margin-top: 3px; }
+    .statusbadge { font-size:10px; font-weight:700; text-transform:uppercase; padding:2px 7px; border-radius:6px; }
+    .statusbadge.live{background:rgba(43,213,118,.15);color:var(--ok);}
+    .statusbadge.pending{background:rgba(139,155,180,.12);color:var(--muted);}
+    .statusbadge.error{background:rgba(255,92,108,.15);color:var(--crit);}
+    .empty { color: var(--muted); font-size: 13px; padding: 20px; text-align:center; }
+    .foot { color: var(--muted); font-size: 12px; margin-top: 26px; text-align:center; line-height:1.6; }
+    .loaderr { background: rgba(255,176,46,.1); border:1px solid var(--warn); color:#ffd699; padding:14px 16px; border-radius:12px; font-size:13px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect, useMemo } = React;
+
+    const SEV_ORDER = { critical: 0, warning: 1, info: 2 };
+    const CAT_LABELS = {
+      account_health: "Account health", spend_budget: "Spend & budget",
+      performance: "Performance", data_freshness: "Data freshness"
+    };
+    const fmt = (n) => n == null ? "—" : n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    const money = (n, c) => n == null ? "—" : `${c === "USD" ? "$" : c === "GBP" ? "£" : "R"}${n.toLocaleString(undefined,{maximumFractionDigits:0})}`;
+
+    function healthFor(client, alerts) {
+      const mine = alerts.filter(a => a.clientId === client.id);
+      const hasErr = client.platforms.some(p => p.status === "error");
+      if (hasErr || mine.some(a => a.severity === "critical")) return "crit";
+      if (mine.some(a => a.severity === "warning")) return "warn";
+      if (client.platforms.every(p => p.status === "pending")) return "pending";
+      return "ok";
+    }
+
+    function KPI({ label, val, sub, children }) {
+      return (
+        <div className="kpi">
+          <div className="label">{label}</div>
+          <div className="val">{val}</div>
+          {sub && <div className="sub">{sub}</div>}
+          {children}
+        </div>
+      );
+    }
+
+    function AlertCard({ a }) {
+      return (
+        <div className={"alert " + a.severity.slice(0,4)}>
+          <div className="a-head">
+            <div>
+              <div className="a-title">{a.title}</div>
+              <div className="a-client">{a.client} · {a.platform === "meta" ? "Meta" : "Google Ads"} · <span className="cat-tag">{CAT_LABELS[a.category]}</span></div>
+            </div>
+            <span className={"badge " + (a.source === "live" ? "live" : "sample")}>{a.source}</span>
+          </div>
+          <div className="a-detail">{a.detail}</div>
+          {a.metric && <span className="a-metric">{a.metric}</span>}
+          {a.action && <div className="a-action"><b>Action:</b> {a.action}</div>}
+        </div>
+      );
+    }
+
+    function ClientRow({ client, alerts, onClick }) {
+      const h = healthFor(client, alerts);
+      const colors = { crit: "var(--crit)", warn: "var(--warn)", ok: "var(--ok)", pending: "var(--muted)" };
+      const mine = alerts.filter(a => a.clientId === client.id);
+      const crit = mine.filter(a => a.severity === "critical").length;
+      const warn = mine.filter(a => a.severity === "warning").length;
+      return (
+        <div className="client" onClick={onClick}>
+          <div className="c-left">
+            <span className="hdot" style={{ background: colors[h] }}></span>
+            <div style={{minWidth:0}}>
+              <div className="c-name">{client.name}</div>
+              <div className="c-meta">{client.region} · {client.currency}</div>
+            </div>
+          </div>
+          <div className="c-right">
+            <div className="chips">
+              {client.platforms.map((p,i) => (
+                <span key={i} className={"chip " + p.platform + (p.status === "error" ? " err" : "")}>
+                  {p.platform === "meta" ? "Meta" : "Google"}{p.status === "error" ? "!" : ""}
+                </span>
+              ))}
+            </div>
+            <div className="alertcount">
+              {crit > 0 && <b className="crit">{crit}●</b>} {warn > 0 && <b className="warn">{warn}●</b>}
+              {crit === 0 && warn === 0 && <span>—</span>}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function Drawer({ client, alerts, onClose }) {
+      const mine = alerts.filter(a => a.clientId === client.id).sort((x,y)=>SEV_ORDER[x.severity]-SEV_ORDER[y.severity]);
+      return (
+        <div className="drawer-bg" onClick={onClose}>
+          <div className="drawer" onClick={e => e.stopPropagation()}>
+            <span className="x" onClick={onClose}>×</span>
+            <h3>{client.name}</h3>
+            <div className="sub">{client.group} · {client.region} · {client.currency}</div>
+
+            <h2 style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:".6px"}}>Accounts</h2>
+            {client.platforms.map((p, i) => (
+              <div className="acct" key={i}>
+                <div className="a-top">
+                  <div><span className={"chip " + p.platform}>{p.platform === "meta" ? "Meta" : "Google Ads"}</span> <span className="mono">{p.accountId}</span></div>
+                  <span className={"statusbadge " + p.status}>{p.status}</span>
+                </div>
+                {p.error && <div className="a-detail" style={{color:"#ffb3ba", marginTop:8}}>{p.error}</div>}
+                {p.metrics && (
+                  <div className="metrics">
+                    {p.metrics.spend != null && <div className="m"><div className="mk">Spend 30d</div><div className="mv">{money(p.metrics.spend, p.metrics.currency)}</div></div>}
+                    {p.metrics.conversions != null && <div className="m"><div className="mk">Conv</div><div className="mv">{fmt(p.metrics.conversions)}</div></div>}
+                    {p.metrics.leads != null && <div className="m"><div className="mk">Leads</div><div className="mv">{fmt(p.metrics.leads)}</div></div>}
+                    {p.metrics.purchases != null && <div className="m"><div className="mk">Purchases</div><div className="mv">{fmt(p.metrics.purchases)}</div></div>}
+                    {p.metrics.clicks != null && <div className="m"><div className="mk">Clicks</div><div className="mv">{fmt(p.metrics.clicks)}</div></div>}
+                    {p.metrics.activeCampaigns != null && <div className="m"><div className="mk">Active campaigns</div><div className="mv">{fmt(p.metrics.activeCampaigns)}</div></div>}
+                  </div>
+                )}
+                {p.status === "pending" && <div className="a-detail" style={{marginTop:8, color:"var(--muted)"}}>Awaiting next daily refresh.</div>}
+              </div>
+            ))}
+
+            <h2 style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:".6px", marginTop:20}}>Alerts ({mine.length})</h2>
+            {mine.length ? mine.map(a => <AlertCard key={a.id} a={a} />) : <div className="empty">No active alerts for this client.</div>}
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      const [snapshot, setSnapshot] = useState(null);
+      const [clients, setClients] = useState([]);
+      const [alerts, setAlerts] = useState([]);
+      const [err, setErr] = useState(null);
+      const [q, setQ] = useState("");
+      const [sev, setSev] = useState("all");
+      const [cat, setCat] = useState("all");
+      const [sel, setSel] = useState(null);
+
+      useEffect(() => {
+        Promise.all([
+          fetch("data/snapshot.json").then(r => r.json()),
+          fetch("data/clients.json").then(r => r.json()),
+          fetch("data/alerts.json").then(r => r.json()),
+        ]).then(([s, c, a]) => { setSnapshot(s); setClients(c.clients); setAlerts(a.alerts); })
+          .catch(e => setErr(e.message));
+      }, []);
+
+      const visibleAlerts = useMemo(() => alerts
+        .filter(a => sev === "all" || a.severity === sev)
+        .filter(a => cat === "all" || a.category === cat)
+        .sort((x,y)=>SEV_ORDER[x.severity]-SEV_ORDER[y.severity]), [alerts, sev, cat]);
+
+      const groups = useMemo(() => {
+        const filtered = clients.filter(c => c.name.toLowerCase().includes(q.toLowerCase()) || c.group.toLowerCase().includes(q.toLowerCase()));
+        const map = {};
+        filtered.forEach(c => { (map[c.group] = map[c.group] || []).push(c); });
+        return map;
+      }, [clients, q]);
+
+      if (err) return <div className="wrap"><div className="loaderr">
+        Could not load data files: <b>{err}</b>.<br/>This dashboard reads <code>data/*.json</code> over HTTP. Open it via a server
+        (<code>npx serve</code> or GitHub Pages), not as a <code>file://</code> path.</div></div>;
+      if (!snapshot) return <div className="wrap"><div className="empty">Loading control center…</div></div>;
+
+      const ac = snapshot.alertCounts;
+      return (
+        <div className="wrap">
+          <header className="top">
+            <div className="brand">
+              <h1>Client Control Center</h1>
+              <p>{snapshot.agency} · Google Ads + Meta via Campaign Forge</p>
+            </div>
+            <div className="refresh">
+              Last refresh <b>{new Date(snapshot.lastRefresh).toLocaleString()}</b><br/>
+              Window: {snapshot.refreshWindow} · {snapshot.dataRange.start} → {snapshot.dataRange.end}
+            </div>
+          </header>
+
+          <div className="kpis">
+            <KPI label="Clients" val={snapshot.totals.clients} sub={`${snapshot.totals.adAccounts} ad accounts`} />
+            <KPI label="Live accounts" val={snapshot.totals.accountsLive}
+              sub={`${snapshot.totals.accountsPending} pending · ${snapshot.totals.accountsError} error`} />
+            {snapshot.liveSpend.map((s,i) => (
+              <KPI key={i} label={`Live spend · ${s.currency}`} val={money(s.spend, s.currency)} sub={s.label + " (30d)"} />
+            ))}
+            <KPI label="Active alerts" val={ac.total}>
+              <div className="sev-dots">
+                <span><i className="dot crit"></i>{ac.critical} crit</span>
+                <span><i className="dot warn"></i>{ac.warning} warn</span>
+                <span><i className="dot info"></i>{ac.info} info</span>
+              </div>
+            </KPI>
+          </div>
+
+          <div className="layout">
+            <div className="panel">
+              <h2>Alert Center <span className="count">· {visibleAlerts.length} shown</span></h2>
+              <div className="filters">
+                {["all","critical","warning","info"].map(s => (
+                  <span key={s} className={"pill " + (sev===s?"active":"")} onClick={()=>setSev(s)}>{s}</span>
+                ))}
+              </div>
+              <div className="filters">
+                {["all","account_health","spend_budget","performance","data_freshness"].map(c => (
+                  <span key={c} className={"pill " + (cat===c?"active":"")} onClick={()=>setCat(c)}>{c==="all"?"all categories":CAT_LABELS[c]}</span>
+                ))}
+              </div>
+              {visibleAlerts.length ? visibleAlerts.map(a => <AlertCard key={a.id} a={a} />) : <div className="empty">No alerts match these filters.</div>}
+            </div>
+
+            <div className="panel">
+              <h2>Clients <span className="count">· {clients.length} accounts roster</span></h2>
+              <div className="filters">
+                <input type="text" placeholder="Search clients or groups…" value={q} onChange={e=>setQ(e.target.value)} />
+              </div>
+              {Object.keys(groups).length ? Object.entries(groups).map(([g, list]) => (
+                <div className="group" key={g}>
+                  <div className="g-name">{g} · {list.length}</div>
+                  {list.map(c => <ClientRow key={c.id} client={c} alerts={alerts} onClick={()=>setSel(c)} />)}
+                </div>
+              )) : <div className="empty">No clients match.</div>}
+            </div>
+          </div>
+
+          <div className="foot">
+            Source: {snapshot.source} · Refreshed daily by the <code>client-control-center-refresh</code> scheduled session.<br/>
+            <span className="badge live">live</span> = pulled from the API this run · <span className="badge sample">sample</span> = rule placeholder shown until enough history accrues.
+          </div>
+
+          {sel && <Drawer client={sel} alerts={alerts} onClose={()=>setSel(null)} />}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
