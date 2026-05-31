@@ -19,6 +19,7 @@ const roster = read("data/clients.json");
 const live = read("build/accounts.live.json").accounts;
 const weekly = read("build/weekly-alerts.json").alerts;
 const rules = read("alert-rules.json");
+const budgets = read("build/budgets.json").entries;
 
 const TODAY = "2026-05-31";
 // zero-conversion spend thresholds by currency (account spend over the window)
@@ -55,6 +56,35 @@ for (const c of roster.clients) {
     // strip nulls for a clean file
     for (const k of Object.keys(p.metrics)) if (p.metrics[k] == null) delete p.metrics[k];
   }
+}
+
+// ---- 1b. Merge budget ledger onto clients (+ create budget-only clients) -
+const byId = new Map(roster.clients.map((c) => [c.id, c]));
+for (const e of budgets) {
+  let c = e.clientId ? byId.get(e.clientId) : null;
+  if (!c && e.newClient) {
+    // budget-only client awaiting account link on the next live refresh
+    const platforms = [...new Set(e.lines.map((l) => l.platform))].map((platform) => ({
+      platform, accountName: "Pending account link", accountId: "—", status: "pending",
+    }));
+    c = { ...e.newClient, currency: e.currency, platforms };
+    roster.clients.push(c); byId.set(c.id, c);
+  }
+  if (!c) continue;
+  c.category = e.category;
+  c.budget = {
+    currency: e.currency,
+    monthly: round(e.lines.reduce((s, l) => s + l.amount, 0)),
+    lines: e.lines,
+  };
+  // pacing: last_30d ~= one month. Compare live spend (same currency) to monthly budget.
+  const liveSpend = c.platforms
+    .filter((p) => p.status === "live" && p.metrics.currency === e.currency)
+    .reduce((s, p) => s + p.metrics.spend, 0);
+  const hasLive = c.platforms.some((p) => p.status === "live");
+  c.budget.pacing = hasLive
+    ? { spend: round(liveSpend), pct: Math.round((liveSpend / c.budget.monthly) * 100), hasLive: true }
+    : { hasLive: false };
 }
 
 // ---- 2. Evaluate daily (account-level) rules -----------------------------
@@ -152,6 +182,33 @@ if (rolaLeadCPAs.length >= 4) {
   }
 }
 
+// ---- 2c. Pacing alerts (budget vs live spend) ----------------------------
+const over = rules.categories.spend_budget.rules.find((r) => r.id === "monthly_overpacing")?.threshold_pct ?? 110;
+for (const c of roster.clients) {
+  const b = c.budget;
+  if (!b || !b.pacing || !b.pacing.hasLive) continue;
+  const pct = b.pacing.pct;
+  const cur = b.currency;
+  const fmtB = `${cur} ${b.pacing.spend.toLocaleString()} / ${cur} ${b.monthly.toLocaleString()} (${pct}%)`;
+  if (pct >= over) {
+    alerts.push({
+      source: "live", cadence: "weekly", detectedAt: TODAY,
+      id: `a-${c.id}-overpacing`, clientId: c.id, client: c.name, platform: "—", account: "budget",
+      category: "spend_budget", severity: "warning",
+      title: "Overpacing budget", detail: `Last-30d spend is at ${pct}% of the monthly budget. ${fmtB}.`,
+      metric: fmtB, action: "Confirm the overspend is intentional or pull back daily budgets.",
+    });
+  } else if (pct < 60) {
+    alerts.push({
+      source: "live", cadence: "weekly", detectedAt: TODAY,
+      id: `a-${c.id}-underpacing`, clientId: c.id, client: c.name, platform: "—", account: "budget",
+      category: "spend_budget", severity: "info",
+      title: "Underpacing budget", detail: `Last-30d spend is only ${pct}% of the monthly budget. ${fmtB}. Budget may be under-delivering.`,
+      metric: fmtB, action: "Check delivery / approvals; reallocate or raise bids if intentional headroom.",
+    });
+  }
+}
+
 // ---- 3. Merge weekly campaign-level alerts -------------------------------
 for (const w of weekly) alerts.push(w);
 
@@ -183,6 +240,12 @@ const snapshot = {
   liveSpend: Object.entries(byCurrency).map(([currency, spend]) => ({
     currency, spend: round(spend), label: curLabel[currency] || currency,
   })).sort((a, b) => b.spend - a.spend),
+  monthlyBudget: Object.entries(
+    roster.clients.reduce((acc, c) => {
+      if (c.budget) acc[c.budget.currency] = (acc[c.budget.currency] || 0) + c.budget.monthly;
+      return acc;
+    }, {})
+  ).map(([currency, amount]) => ({ currency, amount: round(amount) })).sort((a, b) => b.amount - a.amount),
   alertCounts: {
     critical: alerts.filter((a) => a.severity === "critical").length,
     warning: alerts.filter((a) => a.severity === "warning").length,

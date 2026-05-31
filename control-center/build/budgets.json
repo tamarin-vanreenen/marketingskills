@@ -1,0 +1,138 @@
+{
+  "_comment": "Authoritative budget ledger (monthly). Maintained by hand, not pulled. The evaluator joins these onto clients to compute pacing (last_30d spend vs monthly budget). Each entry maps to an existing roster clientId, or defines a newClient to add as pending until the next MCP refresh binds the relinked account. 'lines' nest campaign/channel budgets under the account. type per line: lead | ecommerce | traffic.",
+  "updated": "2026-05-31",
+  "entries": [
+    { "clientId": "weg-africa", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Always on Campaigns", "platform": "google", "channel": "Google Search", "level": "campaign", "type": "lead", "amount": 40000 },
+      { "name": "MEPS", "platform": "google", "channel": "Google Search", "level": "campaign", "type": "lead", "amount": 6000 },
+      { "name": "Solar", "platform": "google", "channel": "Google Search", "level": "campaign", "type": "lead", "amount": 20000 }
+    ]},
+    { "clientId": "iconnix", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Winfreight", "platform": "google", "channel": "Google Search", "level": "campaign", "type": "lead", "amount": 12000 },
+      { "name": "Road Feed", "platform": "google", "channel": "Google Search", "level": "campaign", "type": "lead", "amount": 4000 }
+    ]},
+    { "clientId": "merchant-factors", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Account budget", "platform": "google", "channel": "Google", "level": "account", "type": "lead", "amount": 10000 }
+    ]},
+    { "clientId": "century-city", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "The Bridges", "platform": "meta", "channel": "Meta", "level": "account", "type": "lead", "amount": 25000 }
+    ]},
+    { "clientId": "park-place", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "The Bridges", "platform": "google", "channel": "Google", "level": "account", "type": "lead", "amount": 5000 }
+    ]},
+    { "clientId": "burgundy", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Finwood", "platform": "meta", "channel": "Meta", "level": "campaign", "type": "lead", "amount": 30000 },
+      { "name": "Ashmere", "platform": "meta", "channel": "Meta", "level": "campaign", "type": "lead", "amount": 30000 }
+    ]},
+    { "clientId": "oasis-life", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Oasis Sunningdale", "platform": "meta", "channel": "Meta", "level": "campaign", "type": "lead", "amount": 20000 },
+      { "name": "Oasis Burgundy", "platform": "meta", "channel": "Meta", "level": "campaign", "type": "lead", "amount": 20000 }
+    ]},
+
+    { "clientId": "computer-mania", "category": "ecommerce", "currency": "ZAR", "lines": [
+      { "name": "Lenovo", "platform": "google", "channel": "Google", "level": "campaign", "type": "ecommerce", "amount": 7500 },
+      { "name": "Acer", "platform": "google", "channel": "Google", "level": "campaign", "type": "ecommerce", "amount": 7500 },
+      { "name": "Lenovo", "platform": "meta", "channel": "Meta", "level": "campaign", "type": "ecommerce", "amount": 7500 },
+      { "name": "Acer (web conversion)", "platform": "meta", "channel": "Meta", "level": "campaign", "type": "ecommerce", "amount": 7500 }
+    ]},
+    { "clientId": "heriz-gallery", "category": "ecommerce", "currency": "ZAR", "lines": [
+      { "name": "Account budget", "platform": "google", "channel": "Google", "level": "account", "type": "ecommerce", "amount": 10000 },
+      { "name": "Account budget", "platform": "meta", "channel": "Meta", "level": "account", "type": "ecommerce", "amount": 10000 }
+    ]},
+    { "clientId": "bloomable", "category": "ecommerce", "currency": "ZAR", "lines": [
+      { "name": "Account budget", "platform": "google", "channel": "Google", "level": "account", "type": "ecommerce", "amount": 280000 }
+    ]},
+
+    { "clientId": "varvaglione", "category": "traffic", "currency": "USD", "lines": [
+      { "name": "Meta", "platform": "meta", "channel": "Meta", "level": "account", "type": "traffic", "amount": 2633 },
+      { "name": "Google", "platform": "google", "channel": "Google", "level": "account", "type": "traffic", "amount": 1500 }
+    ]},
+    { "clientId": "ruggeri", "category": "traffic", "currency": "USD", "lines": [
+      { "name": "Meta", "platform": "meta", "channel": "Meta", "level": "account", "type": "traffic", "amount": 1000 },
+      { "name": "Google", "platform": "google", "channel": "Google", "level": "account", "type": "traffic", "amount": 720 }
+    ]},
+    { "clientId": "saracco", "category": "traffic", "currency": "USD", "lines": [
+      { "name": "Meta", "platform": "meta", "channel": "Meta", "level": "account", "type": "traffic", "amount": 3320 },
+      { "name": "Google", "platform": "google", "channel": "Google", "level": "account", "type": "traffic", "amount": 1400 }
+    ]},
+    { "clientId": "zaccagnini", "category": "traffic", "currency": "USD", "lines": [
+      { "name": "Meta", "platform": "meta", "channel": "Meta", "level": "account", "type": "traffic", "amount": 2600 },
+      { "name": "Google", "platform": "google", "channel": "Google", "level": "account", "type": "traffic", "amount": 2500 }
+    ]},
+
+    { "clientId": "rola-ford", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 15000 },
+      { "name": "Pmax", "platform": "google", "channel": "Google Pmax", "level": "channel", "type": "lead", "amount": 4000 },
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 15000 },
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 21000 }
+    ]},
+    { "clientId": "rola-volvo", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 8000 },
+      { "name": "Pmax", "platform": "google", "channel": "Google Pmax", "level": "channel", "type": "lead", "amount": 4000 },
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 31000 }
+    ]},
+    { "clientId": "rola-byd", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 6000 },
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 7000 }
+    ]},
+    { "clientId": "rms", "name": "Rola Motor Group - RMG", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 20000 },
+      { "name": "Pmax", "platform": "google", "channel": "Google Pmax", "level": "channel", "type": "lead", "amount": 17500 },
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 30000 }
+    ]},
+    { "clientId": "rola-toyota", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Toyota | Google Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 15000 },
+      { "name": "Toyota Somerset West — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 8000 },
+      { "name": "Toyota Somerset West — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 5500 },
+      { "name": "Toyota Bredasdorp — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 8000 },
+      { "name": "Toyota Bredasdorp — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 4000 }
+    ]},
+    { "clientId": "rola-vw", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "VW Hermanus — Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 6000 },
+      { "name": "VW Hermanus — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 5000 },
+      { "name": "VW Hermanus — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 4500 },
+      { "name": "VW Malmesbury — Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 6000 },
+      { "name": "VW Malmesbury — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 7000 },
+      { "name": "VW Malmesbury — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 13000 },
+      { "name": "VW Vredenburg — Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 6000 },
+      { "name": "VW Vredenburg — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 7500 },
+      { "name": "VW Vredenburg — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 7500 }
+    ]},
+    { "clientId": "rola-mahindra", "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Mahindra Malmesbury — Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 3500 },
+      { "name": "Mahindra Malmesbury — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 2500 },
+      { "name": "Mahindra Malmesbury — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 8000 },
+      { "name": "Mahindra Vredenburg — Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 3500 },
+      { "name": "Mahindra Vredenburg — Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 2500 },
+      { "name": "Mahindra Vredenburg — Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 7500 }
+    ]},
+
+    { "newClient": { "id": "rola-motor-mall", "name": "Rola Motor Mall", "group": "Rola Motor Group", "region": "ZA" }, "category": "ecommerce", "currency": "ZAR", "lines": [
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 5000 }
+    ]},
+    { "newClient": { "id": "rola-motor-city-preowned", "name": "Rola Motor City Pre-Owned (MultiF)", "group": "Rola Motor Group", "region": "ZA" }, "category": "ecommerce", "currency": "ZAR", "lines": [
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 5000 }
+    ]},
+    { "newClient": { "id": "rola-mercedes-benz", "name": "Rola Mercedes-Benz", "group": "Rola Motor Group", "region": "ZA" }, "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 8000 },
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 5000 },
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 500 }
+    ]},
+    { "newClient": { "id": "rola-somerset-west-fca-opc", "name": "Rola Somerset West (FCA+OPC)", "group": "Rola Motor Group", "region": "ZA" }, "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 15000 },
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 5000 },
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 21000 }
+    ]},
+    { "newClient": { "id": "rola-gwm-haval", "name": "Rola GWM Haval", "group": "Rola Motor Group", "region": "ZA" }, "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Search", "platform": "google", "channel": "Google Search", "level": "channel", "type": "lead", "amount": 10000 },
+      { "name": "Catalog", "platform": "meta", "channel": "Meta Catalog", "level": "channel", "type": "ecommerce", "amount": 5000 }
+    ]},
+    { "newClient": { "id": "rola-gwm-haval-stellenbosch", "name": "Rola GWM Haval - Stellenbosch", "group": "Rola Motor Group", "region": "ZA" }, "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 8000 }
+    ]},
+    { "newClient": { "id": "rola-gwm-haval-hermanus", "name": "Rola GWM Haval Stellenbosch | Hermanus", "group": "Rola Motor Group", "region": "ZA" }, "category": "lead", "currency": "ZAR", "lines": [
+      { "name": "Pmax", "platform": "google", "channel": "Google Pmax", "level": "channel", "type": "lead", "amount": 4000 },
+      { "name": "Leads & Engagement", "platform": "meta", "channel": "Meta Leads & Engagement", "level": "channel", "type": "lead", "amount": 7000 }
+    ]}
+  ]
+}

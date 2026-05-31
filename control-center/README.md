@@ -52,6 +52,7 @@ Each rule in `alert-rules.json` is tagged with its `cadence`.
 | `data/alerts.json` | Current alerts. |
 | `data/snapshot.json` | Totals, last-refresh timestamp, alert counts. |
 | `alert-rules.json` | Rule thresholds, **cadence (daily/weekly)**, + Slack/email delivery config. |
+| `build/budgets.json` | Monthly budget ledger (per client, nested campaign/channel lines, currency, category). Hand-maintained; drives pacing. |
 | `build/accounts.live.json` | Collected account-level rows from the latest daily pull. |
 | `build/weekly-alerts.json` | Campaign-level alerts from the latest weekly pull. |
 | `build/evaluate.mjs` | Evaluator: rows + rules → `data/*.json` + `standalone.html`. |

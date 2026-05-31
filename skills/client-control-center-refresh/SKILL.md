@@ -43,7 +43,7 @@ Default to **daily**. Run **weekly** mode once a week (e.g. Monday).
 - **weekly:** additionally pull campaign-level rows (filtered, technique 3), evaluate the weekly rules, and write the resulting alerts to `control-center/build/weekly-alerts.json`.
 
 ### 3. Evaluate + regenerate
-Run the evaluator — it reads the roster, `accounts.live.json`, `weekly-alerts.json` and `alert-rules.json`, computes metrics, evaluates the enabled rules for the relevant cadence, and writes `data/clients.json`, `data/alerts.json`, `data/snapshot.json`, and `standalone.html`:
+Run the evaluator — it reads the roster, `accounts.live.json`, `weekly-alerts.json`, `build/budgets.json` and `alert-rules.json`, computes metrics, **joins the budget ledger to compute pacing** (last-30d spend vs monthly budget) and raises over/under-pacing alerts, evaluates the enabled rules for the relevant cadence, and writes `data/clients.json`, `data/alerts.json`, `data/snapshot.json`, and `standalone.html`. New budget entries with a `newClient` (e.g. relinked Rola dealers) are added as pending clients until their account is matched by name to a live account during discovery (step 1):
 
 ```bash
 node control-center/build/evaluate.mjs

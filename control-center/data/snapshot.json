@@ -8,11 +8,11 @@
   },
   "source": "Campaign Forge MCP (Google Ads + Meta) · account-level daily + campaign-level weekly",
   "totals": {
-    "clients": 27,
-    "adAccounts": 39,
+    "clients": 34,
+    "adAccounts": 50,
     "platforms": 2,
     "accountsLive": 35,
-    "accountsPending": 0,
+    "accountsPending": 11,
     "accountsError": 4
   },
   "liveSpend": [
@@ -32,10 +32,20 @@
       "label": "UK"
     }
   ],
+  "monthlyBudget": [
+    {
+      "currency": "ZAR",
+      "amount": 959500
+    },
+    {
+      "currency": "USD",
+      "amount": 15673
+    }
+  ],
   "alertCounts": {
     "critical": 0,
-    "warning": 14,
-    "info": 8,
-    "total": 22
+    "warning": 20,
+    "info": 12,
+    "total": 32
   }
 }

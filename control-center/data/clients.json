@@ -37,7 +37,59 @@
             "cpa": 82.61
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 40500,
+        "lines": [
+          {
+            "name": "Toyota | Google Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 15000
+          },
+          {
+            "name": "Toyota Somerset West — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 8000
+          },
+          {
+            "name": "Toyota Somerset West — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 5500
+          },
+          {
+            "name": "Toyota Bredasdorp — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 8000
+          },
+          {
+            "name": "Toyota Bredasdorp — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 4000
+          }
+        ],
+        "pacing": {
+          "spend": 56319.45,
+          "pct": 139,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "rola-ford",
@@ -79,7 +131,51 @@
             "roas": 2.61
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 55000,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 15000
+          },
+          {
+            "name": "Pmax",
+            "platform": "google",
+            "channel": "Google Pmax",
+            "level": "channel",
+            "type": "lead",
+            "amount": 4000
+          },
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 15000
+          },
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 21000
+          }
+        ],
+        "pacing": {
+          "spend": 68438.62,
+          "pct": 124,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "rola-byd",
@@ -121,7 +217,35 @@
             "roas": 8.99
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 13000,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 6000
+          },
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 7000
+          }
+        ],
+        "pacing": {
+          "spend": 15783.91,
+          "pct": 121,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "rola-vw",
@@ -146,7 +270,91 @@
             "cpa": 90.58
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 62500,
+        "lines": [
+          {
+            "name": "VW Hermanus — Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 6000
+          },
+          {
+            "name": "VW Hermanus — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 5000
+          },
+          {
+            "name": "VW Hermanus — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 4500
+          },
+          {
+            "name": "VW Malmesbury — Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 6000
+          },
+          {
+            "name": "VW Malmesbury — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 7000
+          },
+          {
+            "name": "VW Malmesbury — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 13000
+          },
+          {
+            "name": "VW Vredenburg — Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 6000
+          },
+          {
+            "name": "VW Vredenburg — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 7500
+          },
+          {
+            "name": "VW Vredenburg — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 7500
+          }
+        ],
+        "pacing": {
+          "spend": 46197.48,
+          "pct": 74,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "rola-stellantis",
@@ -221,7 +429,43 @@
             "cpa": 51.96
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 43000,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 8000
+          },
+          {
+            "name": "Pmax",
+            "platform": "google",
+            "channel": "Google Pmax",
+            "level": "channel",
+            "type": "lead",
+            "amount": 4000
+          },
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 31000
+          }
+        ],
+        "pacing": {
+          "spend": 5819.83,
+          "pct": 14,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "rola-mahindra",
@@ -246,7 +490,67 @@
             "cpa": 237.99
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 27500,
+        "lines": [
+          {
+            "name": "Mahindra Malmesbury — Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 3500
+          },
+          {
+            "name": "Mahindra Malmesbury — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 2500
+          },
+          {
+            "name": "Mahindra Malmesbury — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 8000
+          },
+          {
+            "name": "Mahindra Vredenburg — Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 3500
+          },
+          {
+            "name": "Mahindra Vredenburg — Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 2500
+          },
+          {
+            "name": "Mahindra Vredenburg — Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 7500
+          }
+        ],
+        "pacing": {
+          "spend": 33081.16,
+          "pct": 120,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "rms",
@@ -270,7 +574,43 @@
             "cpa": 94.07
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 67500,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 20000
+          },
+          {
+            "name": "Pmax",
+            "platform": "google",
+            "channel": "Google Pmax",
+            "level": "channel",
+            "type": "lead",
+            "amount": 17500
+          },
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 30000
+          }
+        ],
+        "pacing": {
+          "spend": 35083.68,
+          "pct": 52,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "brilla",
@@ -349,7 +689,35 @@
             "conversions": 0
           }
         }
-      ]
+      ],
+      "category": "traffic",
+      "budget": {
+        "currency": "USD",
+        "monthly": 5100,
+        "lines": [
+          {
+            "name": "Meta",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "account",
+            "type": "traffic",
+            "amount": 2600
+          },
+          {
+            "name": "Google",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "traffic",
+            "amount": 2500
+          }
+        ],
+        "pacing": {
+          "spend": 7808.15,
+          "pct": 153,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "varvaglione",
@@ -388,7 +756,35 @@
             "conversions": 0
           }
         }
-      ]
+      ],
+      "category": "traffic",
+      "budget": {
+        "currency": "USD",
+        "monthly": 4133,
+        "lines": [
+          {
+            "name": "Meta",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "account",
+            "type": "traffic",
+            "amount": 2633
+          },
+          {
+            "name": "Google",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "traffic",
+            "amount": 1500
+          }
+        ],
+        "pacing": {
+          "spend": 1091.91,
+          "pct": 26,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "ruggeri",
@@ -427,7 +823,35 @@
             "conversions": 0
           }
         }
-      ]
+      ],
+      "category": "traffic",
+      "budget": {
+        "currency": "USD",
+        "monthly": 1720,
+        "lines": [
+          {
+            "name": "Meta",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "account",
+            "type": "traffic",
+            "amount": 1000
+          },
+          {
+            "name": "Google",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "traffic",
+            "amount": 720
+          }
+        ],
+        "pacing": {
+          "spend": 1746.9,
+          "pct": 102,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "saracco",
@@ -466,7 +890,35 @@
             "conversions": 0
           }
         }
-      ]
+      ],
+      "category": "traffic",
+      "budget": {
+        "currency": "USD",
+        "monthly": 4720,
+        "lines": [
+          {
+            "name": "Meta",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "account",
+            "type": "traffic",
+            "amount": 3320
+          },
+          {
+            "name": "Google",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "traffic",
+            "amount": 1400
+          }
+        ],
+        "pacing": {
+          "spend": 4373.67,
+          "pct": 93,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "oasis-life",
@@ -498,7 +950,35 @@
           "status": "error",
           "error": "USER_PERMISSION_DENIED via account-level GAQL — needs MCC manager login-customer-id mapping"
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 40000,
+        "lines": [
+          {
+            "name": "Oasis Sunningdale",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 20000
+          },
+          {
+            "name": "Oasis Burgundy",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 20000
+          }
+        ],
+        "pacing": {
+          "spend": 40863.35,
+          "pct": 102,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "century-city",
@@ -523,7 +1003,27 @@
             "cpa": 73.07
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 25000,
+        "lines": [
+          {
+            "name": "The Bridges",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "account",
+            "type": "lead",
+            "amount": 25000
+          }
+        ],
+        "pacing": {
+          "spend": 23529.2,
+          "pct": 94,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "burgundy",
@@ -548,7 +1048,35 @@
             "cpa": 56.08
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 60000,
+        "lines": [
+          {
+            "name": "Finwood",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 30000
+          },
+          {
+            "name": "Ashmere",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 30000
+          }
+        ],
+        "pacing": {
+          "spend": 60954.31,
+          "pct": 102,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "park-place",
@@ -572,7 +1100,27 @@
             "cpa": 81.19
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 5000,
+        "lines": [
+          {
+            "name": "The Bridges",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "lead",
+            "amount": 5000
+          }
+        ],
+        "pacing": {
+          "spend": 0,
+          "pct": 0,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "bloomable",
@@ -613,7 +1161,27 @@
             "roas": 13.43
           }
         }
-      ]
+      ],
+      "category": "ecommerce",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 280000,
+        "lines": [
+          {
+            "name": "Account budget",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "ecommerce",
+            "amount": 280000
+          }
+        ],
+        "pacing": {
+          "spend": 253705.89,
+          "pct": 91,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "computer-mania",
@@ -645,7 +1213,51 @@
           "status": "error",
           "error": "USER_PERMISSION_DENIED via account-level GAQL — needs MCC manager login-customer-id mapping"
         }
-      ]
+      ],
+      "category": "ecommerce",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 30000,
+        "lines": [
+          {
+            "name": "Lenovo",
+            "platform": "google",
+            "channel": "Google",
+            "level": "campaign",
+            "type": "ecommerce",
+            "amount": 7500
+          },
+          {
+            "name": "Acer",
+            "platform": "google",
+            "channel": "Google",
+            "level": "campaign",
+            "type": "ecommerce",
+            "amount": 7500
+          },
+          {
+            "name": "Lenovo",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "campaign",
+            "type": "ecommerce",
+            "amount": 7500
+          },
+          {
+            "name": "Acer (web conversion)",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "campaign",
+            "type": "ecommerce",
+            "amount": 7500
+          }
+        ],
+        "pacing": {
+          "spend": 30787.16,
+          "pct": 103,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "heriz-gallery",
@@ -684,7 +1296,35 @@
             "cpa": 42.46
           }
         }
-      ]
+      ],
+      "category": "ecommerce",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 20000,
+        "lines": [
+          {
+            "name": "Account budget",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "ecommerce",
+            "amount": 10000
+          },
+          {
+            "name": "Account budget",
+            "platform": "meta",
+            "channel": "Meta",
+            "level": "account",
+            "type": "ecommerce",
+            "amount": 10000
+          }
+        ],
+        "pacing": {
+          "spend": 25070.64,
+          "pct": 125,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "tagmarshal",
@@ -733,7 +1373,43 @@
             "cpa": 676.79
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 66000,
+        "lines": [
+          {
+            "name": "Always on Campaigns",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 40000
+          },
+          {
+            "name": "MEPS",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 6000
+          },
+          {
+            "name": "Solar",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 20000
+          }
+        ],
+        "pacing": {
+          "spend": 64633.54,
+          "pct": 98,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "politically-aweh",
@@ -790,7 +1466,27 @@
             "cpa": 125.29
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 10000,
+        "lines": [
+          {
+            "name": "Account budget",
+            "platform": "google",
+            "channel": "Google",
+            "level": "account",
+            "type": "lead",
+            "amount": 10000
+          }
+        ],
+        "pacing": {
+          "spend": 9522.22,
+          "pct": 95,
+          "hasLive": true
+        }
+      }
     },
     {
       "id": "iconnix",
@@ -815,7 +1511,338 @@
             "cpa": 430.9
           }
         }
-      ]
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 16000,
+        "lines": [
+          {
+            "name": "Winfreight",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 12000
+          },
+          {
+            "name": "Road Feed",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "campaign",
+            "type": "lead",
+            "amount": 4000
+          }
+        ],
+        "pacing": {
+          "spend": 11634.21,
+          "pct": 73,
+          "hasLive": true
+        }
+      }
+    },
+    {
+      "id": "rola-motor-mall",
+      "name": "Rola Motor Mall",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "ecommerce",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 5000,
+        "lines": [
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 5000
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
+    },
+    {
+      "id": "rola-motor-city-preowned",
+      "name": "Rola Motor City Pre-Owned (MultiF)",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "ecommerce",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 5000,
+        "lines": [
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 5000
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
+    },
+    {
+      "id": "rola-mercedes-benz",
+      "name": "Rola Mercedes-Benz",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "google",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        },
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 13500,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 8000
+          },
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 5000
+          },
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 500
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
+    },
+    {
+      "id": "rola-somerset-west-fca-opc",
+      "name": "Rola Somerset West (FCA+OPC)",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "google",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        },
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 41000,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 15000
+          },
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 5000
+          },
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 21000
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
+    },
+    {
+      "id": "rola-gwm-haval",
+      "name": "Rola GWM Haval",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "google",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        },
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 15000,
+        "lines": [
+          {
+            "name": "Search",
+            "platform": "google",
+            "channel": "Google Search",
+            "level": "channel",
+            "type": "lead",
+            "amount": 10000
+          },
+          {
+            "name": "Catalog",
+            "platform": "meta",
+            "channel": "Meta Catalog",
+            "level": "channel",
+            "type": "ecommerce",
+            "amount": 5000
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
+    },
+    {
+      "id": "rola-gwm-haval-stellenbosch",
+      "name": "Rola GWM Haval - Stellenbosch",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 8000,
+        "lines": [
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 8000
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
+    },
+    {
+      "id": "rola-gwm-haval-hermanus",
+      "name": "Rola GWM Haval Stellenbosch | Hermanus",
+      "group": "Rola Motor Group",
+      "region": "ZA",
+      "currency": "ZAR",
+      "platforms": [
+        {
+          "platform": "google",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        },
+        {
+          "platform": "meta",
+          "accountName": "Pending account link",
+          "accountId": "—",
+          "status": "pending"
+        }
+      ],
+      "category": "lead",
+      "budget": {
+        "currency": "ZAR",
+        "monthly": 11000,
+        "lines": [
+          {
+            "name": "Pmax",
+            "platform": "google",
+            "channel": "Google Pmax",
+            "level": "channel",
+            "type": "lead",
+            "amount": 4000
+          },
+          {
+            "name": "Leads & Engagement",
+            "platform": "meta",
+            "channel": "Meta Leads & Engagement",
+            "level": "channel",
+            "type": "lead",
+            "amount": 7000
+          }
+        ],
+        "pacing": {
+          "hasLive": false
+        }
+      }
     }
   ]
 }

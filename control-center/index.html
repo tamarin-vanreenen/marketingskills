@@ -90,6 +90,20 @@
     .statusbadge.live{background:rgba(43,213,118,.15);color:var(--ok);}
     .statusbadge.pending{background:rgba(139,155,180,.12);color:var(--muted);}
     .statusbadge.error{background:rgba(255,92,108,.15);color:var(--crit);}
+    .cat-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; padding: 2px 7px; border-radius: 6px; border: 1px solid var(--line); }
+    .cat-badge.lead { color: #7fd0ff; } .cat-badge.ecommerce { color: #8affc0; } .cat-badge.traffic { color: #ffcf7a; }
+    .pace { min-width: 96px; }
+    .pace .pace-top { display:flex; justify-content:space-between; font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+    .pace .pace-top b { color: var(--txt); }
+    .pacebar { height: 6px; border-radius: 4px; background: var(--panel); overflow: hidden; border:1px solid var(--line); }
+    .pacebar > i { display:block; height: 100%; border-radius: 4px; }
+    .pace.ok > .pacebar > i { background: var(--ok); } .pace.over > .pacebar > i { background: var(--warn); } .pace.under > .pacebar > i { background: var(--info); }
+    .budgetbox { border:1px solid var(--line); border-radius: 11px; padding: 13px; margin-bottom: 11px; background: var(--panel-2); }
+    .budgetbox .bb-top { display:flex; justify-content:space-between; align-items:baseline; }
+    .budgetbox .bb-total { font-size: 18px; font-weight: 700; }
+    .budgetline { display:flex; justify-content:space-between; gap:8px; font-size: 12.5px; padding: 6px 0; border-top: 1px solid var(--line); }
+    .budgetline:first-of-type { border-top: none; margin-top: 6px; }
+    .budgetline .bl-meta { color: var(--muted); font-size: 11px; }
     .empty { color: var(--muted); font-size: 13px; padding: 20px; text-align:center; }
     .foot { color: var(--muted); font-size: 12px; margin-top: 26px; text-align:center; line-height:1.6; }
     .loaderr { background: rgba(255,176,46,.1); border:1px solid var(--warn); color:#ffd699; padding:14px 16px; border-radius:12px; font-size:13px; }
@@ -145,6 +159,26 @@
       );
     }
 
+    function Pace({ budget }) {
+      if (!budget) return null;
+      if (!budget.pacing || !budget.pacing.hasLive) {
+        return (
+          <div className="pace">
+            <div className="pace-top"><span>budget</span><b>{money(budget.monthly, budget.currency)}</b></div>
+            <div className="pacebar"></div>
+          </div>
+        );
+      }
+      const pct = budget.pacing.pct;
+      const cls = pct >= 110 ? "over" : pct < 60 ? "under" : "ok";
+      return (
+        <div className={"pace " + cls} title="Last-30d spend vs monthly budget">
+          <div className="pace-top"><span>{pct}%</span><b>{money(budget.pacing.spend, budget.currency)}/{money(budget.monthly, budget.currency)}</b></div>
+          <div className="pacebar"><i style={{ width: Math.min(100, pct) + "%" }}></i></div>
+        </div>
+      );
+    }
+
     function ClientRow({ client, alerts, onClick }) {
       const h = healthFor(client, alerts);
       const colors = { crit: "var(--crit)", warn: "var(--warn)", ok: "var(--ok)", pending: "var(--muted)" };
@@ -156,11 +190,12 @@
           <div className="c-left">
             <span className="hdot" style={{ background: colors[h] }}></span>
             <div style={{minWidth:0}}>
-              <div className="c-name">{client.name}</div>
+              <div className="c-name">{client.name} {client.category && <span className={"cat-badge " + client.category}>{client.category}</span>}</div>
               <div className="c-meta">{client.region} · {client.currency}</div>
             </div>
           </div>
           <div className="c-right">
+            <Pace budget={client.budget} />
             <div className="chips">
               {client.platforms.map((p,i) => (
                 <span key={i} className={"chip " + p.platform + (p.status === "error" ? " err" : "")}>
@@ -183,8 +218,26 @@
         <div className="drawer-bg" onClick={onClose}>
           <div className="drawer" onClick={e => e.stopPropagation()}>
             <span className="x" onClick={onClose}>×</span>
-            <h3>{client.name}</h3>
+            <h3>{client.name} {client.category && <span className={"cat-badge " + client.category}>{client.category}</span>}</h3>
             <div className="sub">{client.group} · {client.region} · {client.currency}</div>
+
+            {client.budget && (
+              <div className="budgetbox">
+                <div className="bb-top">
+                  <div style={{color:"var(--muted)", fontSize:12, textTransform:"uppercase", letterSpacing:".5px"}}>Monthly budget</div>
+                  <div className="bb-total">{money(client.budget.monthly, client.budget.currency)}</div>
+                </div>
+                {client.budget.pacing && client.budget.pacing.hasLive
+                  ? <div style={{marginTop:10}}><Pace budget={client.budget} /></div>
+                  : <div className="a-detail" style={{marginTop:8, color:"var(--muted)"}}>Pacing appears once live spend is linked to this account.</div>}
+                {client.budget.lines.map((l, i) => (
+                  <div className="budgetline" key={i}>
+                    <div>{l.name} <span className="bl-meta">· {l.channel}{l.level === "campaign" ? " · campaign" : ""}</span></div>
+                    <div>{money(l.amount, client.budget.currency)}</div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <h2 style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:".6px"}}>Accounts</h2>
             {client.platforms.map((p, i) => (
@@ -278,6 +331,10 @@
             {snapshot.liveSpend.map((s,i) => (
               <KPI key={i} label={`Live spend · ${s.currency}`} val={money(s.spend, s.currency)} sub={s.label + " (30d)"} />
             ))}
+            {snapshot.monthlyBudget && snapshot.monthlyBudget.length > 0 && (
+              <KPI label="Monthly budget" val={money(snapshot.monthlyBudget[0].amount, snapshot.monthlyBudget[0].currency)}
+                sub={snapshot.monthlyBudget.length > 1 ? "+ " + snapshot.monthlyBudget.slice(1).map(b => money(b.amount, b.currency)).join(" · ") : "across all clients"} />
+            )}
             <KPI label="Active alerts" val={ac.total}>
               <div className="sev-dots">
                 <span><i className="dot crit"></i>{ac.critical} crit</span>
