@@ -61,7 +61,8 @@ for (const c of roster.clients) {
 // ---- 1b. Merge budget ledger onto clients (+ create budget-only clients) -
 const byId = new Map(roster.clients.map((c) => [c.id, c]));
 for (const e of budgets) {
-  let c = e.clientId ? byId.get(e.clientId) : null;
+  // idempotent: match by clientId, else by an already-created newClient id
+  let c = e.clientId ? byId.get(e.clientId) : (e.newClient ? byId.get(e.newClient.id) : null);
   if (!c && e.newClient) {
     // budget-only client awaiting account link on the next live refresh
     const platforms = [...new Set(e.lines.map((l) => l.platform))].map((platform) => ({

@@ -59,8 +59,17 @@ Each rule in `alert-rules.json` is tagged with its `cadence`.
 
 ## Viewing it
 
-**Live (recommended):** once Pages is enabled (Settings → Pages → Source: *GitHub Actions*), the workflow uploads the `control-center/` folder as the site root, so the dashboard is at
-`https://<owner>.github.io/marketingskills/` and refreshes whenever the daily job pushes new data.
+**Live (current setup):** GitHub Pages is configured as **Deploy from a branch**, so it auto-deploys on every push. `control-center/` is served at `/control-center/`, and a repo-root `index.html` redirects there, so the team URL is simply:
+
+`https://tamarin-vanreenen.github.io/marketingskills/`
+
+The site carries `noindex` + a `robots.txt` disallow so it stays out of search engines (it's an unlisted internal link, not authenticated — see SECURITY note below).
+
+The alternative "GitHub Actions" Pages source (serves `control-center/` at the bare root) is available via the manual `.github/workflows/deploy-pages.yml` workflow.
+
+### Privacy / access
+
+The Pages URL is **public to anyone who has the link** (GitHub Pages can't gate by login outside Enterprise). This dashboard shows client budgets/spend, so: keep the link internal, don't post it publicly. `noindex`/`robots.txt` reduce discoverability but are not access control. For real protection, add a client-side passphrase gate or host behind Cloudflare Access / an authenticated proxy.
 
 **Locally / handoff to a developer:** it reads JSON over HTTP, so serve it (don't open as a `file://`):
 
