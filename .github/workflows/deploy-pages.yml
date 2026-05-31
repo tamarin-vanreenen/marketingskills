@@ -1,0 +1,47 @@
+name: Deploy Control Center to Pages
+
+# OPTIONAL / MANUAL ONLY.
+# The live site currently uses GitHub's built-in "Deploy from a branch" Pages,
+# which auto-deploys on every push to the configured branch (control-center/ is
+# served at /control-center/, and the repo-root index.html redirects there).
+#
+# This workflow is the alternative "GitHub Actions" source, which would serve
+# control-center/ at the site ROOT. It is left as manual-only so it does NOT
+# auto-run and fail while the branch-based source is selected. To use it instead:
+#   1) Settings -> Pages -> Source = GitHub Actions
+#   2) Settings -> Environments -> github-pages -> allow this branch
+#   3) Run it from the Actions tab.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload control-center as artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: control-center
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,97 @@
+{
+  "agency": "ROI Solutions / Shift One Digital",
+  "lastRefresh": "2026-05-31T06:30:00.000Z",
+  "refreshWindow": "last_30d",
+  "dataRange": {
+    "start": "2026-05-01",
+    "end": "2026-05-30"
+  },
+  "source": "Campaign Forge MCP (Google Ads + Meta) · account-level daily + campaign-level weekly",
+  "totals": {
+    "clients": 34,
+    "adAccounts": 50,
+    "platforms": 2,
+    "accountsLive": 35,
+    "accountsPending": 11,
+    "accountsError": 4
+  },
+  "ranges": [
+    {
+      "id": "mtd",
+      "label": "Month-to-date"
+    },
+    {
+      "id": "last_7d",
+      "label": "Last 7 days"
+    }
+  ],
+  "liveSpend": [
+    {
+      "currency": "ZAR",
+      "spend": 808046.03,
+      "label": "South Africa & UK clients"
+    },
+    {
+      "currency": "USD",
+      "spend": 27905.02,
+      "label": "International (Wines U)"
+    },
+    {
+      "currency": "GBP",
+      "spend": 3247.48,
+      "label": "UK"
+    }
+  ],
+  "liveSpendByRange": {
+    "mtd": [
+      {
+        "currency": "ZAR",
+        "spend": 808046.03,
+        "label": "South Africa & UK clients"
+      },
+      {
+        "currency": "USD",
+        "spend": 27905.02,
+        "label": "International (Wines U)"
+      },
+      {
+        "currency": "GBP",
+        "spend": 3247.48,
+        "label": "UK"
+      }
+    ],
+    "last_7d": [
+      {
+        "currency": "ZAR",
+        "spend": 163284.97,
+        "label": "South Africa & UK clients"
+      },
+      {
+        "currency": "USD",
+        "spend": 13330.86,
+        "label": "International (Wines U)"
+      },
+      {
+        "currency": "GBP",
+        "spend": 995.95,
+        "label": "UK"
+      }
+    ]
+  },
+  "monthlyBudget": [
+    {
+      "currency": "ZAR",
+      "amount": 959500
+    },
+    {
+      "currency": "USD",
+      "amount": 15673
+    }
+  ],
+  "alertCounts": {
+    "critical": 0,
+    "warning": 20,
+    "info": 12,
+    "total": 32
+  }
+}
