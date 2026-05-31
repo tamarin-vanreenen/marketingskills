@@ -21,6 +21,28 @@
             "leads": 451,
             "purchases": 0,
             "cpa": 92.83
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 41864.13,
+              "currency": "ZAR",
+              "clicks": 34615,
+              "impressions": 1074144,
+              "ctr": 3.22,
+              "leads": 451,
+              "purchases": 0,
+              "cpa": 92.83
+            },
+            "last_7d": {
+              "spend": 11112.23,
+              "currency": "ZAR",
+              "clicks": 8378,
+              "impressions": 288621,
+              "ctr": 2.9,
+              "leads": 124,
+              "purchases": 0,
+              "cpa": 89.61
+            }
           }
         },
         {
@@ -35,6 +57,25 @@
             "impressions": 0,
             "conversions": 174.99,
             "cpa": 82.61
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 14455.32,
+              "currency": "ZAR",
+              "clicks": 0,
+              "impressions": 0,
+              "conversions": 174.99,
+              "cpa": 82.61
+            },
+            "last_7d": {
+              "spend": 3459.8,
+              "currency": "ZAR",
+              "clicks": 603,
+              "impressions": 5409,
+              "ctr": 11.15,
+              "conversions": 37,
+              "cpa": 93.51
+            }
           }
         }
       ],
@@ -84,8 +125,23 @@
             "amount": 4000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 56319.45,
+            "target": 40500,
+            "pct": 139,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 14572.03,
+            "target": 9450,
+            "pct": 154,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 56319.45,
+          "target": 40500,
           "pct": 139,
           "hasLive": true
         }
@@ -112,6 +168,28 @@
             "leads": 212,
             "purchases": 0,
             "cpa": 242.77
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 51466.57,
+              "currency": "ZAR",
+              "clicks": 24095,
+              "impressions": 916410,
+              "ctr": 2.63,
+              "leads": 212,
+              "purchases": 0,
+              "cpa": 242.77
+            },
+            "last_7d": {
+              "spend": 12535.21,
+              "currency": "ZAR",
+              "clicks": 5657,
+              "impressions": 207219,
+              "ctr": 2.73,
+              "leads": 47,
+              "purchases": 0,
+              "cpa": 266.71
+            }
           }
         },
         {
@@ -129,6 +207,18 @@
             "conversions": 154,
             "cpa": 110.21,
             "roas": 2.61
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 16972.05,
+              "currency": "ZAR",
+              "clicks": 1582,
+              "impressions": 19935,
+              "ctr": 7.94,
+              "conversions": 154,
+              "cpa": 110.21,
+              "roas": 2.61
+            }
           }
         }
       ],
@@ -170,8 +260,23 @@
             "amount": 21000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 68438.62,
+            "target": 55000,
+            "pct": 124,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 12535.21,
+            "target": 12833.33,
+            "pct": 98,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 68438.62,
+          "target": 55000,
           "pct": 124,
           "hasLive": true
         }
@@ -198,6 +303,28 @@
             "leads": 132,
             "purchases": 0,
             "cpa": 76.59
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 10110.46,
+              "currency": "ZAR",
+              "clicks": 5292,
+              "impressions": 145332,
+              "ctr": 3.64,
+              "leads": 132,
+              "purchases": 0,
+              "cpa": 76.59
+            },
+            "last_7d": {
+              "spend": 1560.28,
+              "currency": "ZAR",
+              "clicks": 1137,
+              "impressions": 28480,
+              "ctr": 3.99,
+              "leads": 21,
+              "purchases": 0,
+              "cpa": 74.3
+            }
           }
         },
         {
@@ -215,6 +342,28 @@
             "conversions": 82.99,
             "cpa": 68.36,
             "roas": 8.99
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 5673.45,
+              "currency": "ZAR",
+              "clicks": 4952,
+              "impressions": 28134,
+              "ctr": 17.6,
+              "conversions": 82.99,
+              "cpa": 68.36,
+              "roas": 8.99
+            },
+            "last_7d": {
+              "spend": 1289.26,
+              "currency": "ZAR",
+              "clicks": 1023,
+              "impressions": 5777,
+              "ctr": 17.71,
+              "conversions": 15,
+              "cpa": 85.95,
+              "roas": 9.31
+            }
           }
         }
       ],
@@ -240,8 +389,23 @@
             "amount": 7000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 15783.91,
+            "target": 13000,
+            "pct": 121,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 2849.54,
+            "target": 3033.33,
+            "pct": 94,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 15783.91,
+          "target": 13000,
           "pct": 121,
           "hasLive": true
         }
@@ -268,6 +432,28 @@
             "leads": 510,
             "purchases": 0,
             "cpa": 90.58
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 46197.48,
+              "currency": "ZAR",
+              "clicks": 28847,
+              "impressions": 802812,
+              "ctr": 3.59,
+              "leads": 510,
+              "purchases": 0,
+              "cpa": 90.58
+            },
+            "last_7d": {
+              "spend": 11642.45,
+              "currency": "ZAR",
+              "clicks": 5839,
+              "impressions": 165300,
+              "ctr": 3.53,
+              "leads": 145,
+              "purchases": 0,
+              "cpa": 80.29
+            }
           }
         }
       ],
@@ -349,8 +535,23 @@
             "amount": 7500
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 46197.48,
+            "target": 62500,
+            "pct": 74,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 11642.45,
+            "target": 14583.33,
+            "pct": 80,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 46197.48,
+          "target": 62500,
           "pct": 74,
           "hasLive": true
         }
@@ -377,6 +578,28 @@
             "leads": 79,
             "purchases": 0,
             "cpa": 261.3
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 20642.67,
+              "currency": "ZAR",
+              "clicks": 11584,
+              "impressions": 321231,
+              "ctr": 3.61,
+              "leads": 79,
+              "purchases": 0,
+              "cpa": 261.3
+            },
+            "last_7d": {
+              "spend": 5553.96,
+              "currency": "ZAR",
+              "clicks": 3431,
+              "impressions": 116002,
+              "ctr": 2.96,
+              "leads": 18,
+              "purchases": 0,
+              "cpa": 308.55
+            }
           }
         }
       ]
@@ -402,6 +625,28 @@
             "leads": 73,
             "purchases": 0,
             "cpa": 81.9
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 5978.71,
+              "currency": "ZAR",
+              "clicks": 3933,
+              "impressions": 43617,
+              "ctr": 9.02,
+              "leads": 73,
+              "purchases": 0,
+              "cpa": 81.9
+            },
+            "last_7d": {
+              "spend": 1686.54,
+              "currency": "ZAR",
+              "clicks": 1458,
+              "impressions": 13260,
+              "ctr": 11,
+              "leads": 29,
+              "purchases": 0,
+              "cpa": 58.16
+            }
           }
         }
       ]
@@ -427,6 +672,28 @@
             "leads": 112,
             "purchases": 0,
             "cpa": 51.96
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 5819.83,
+              "currency": "ZAR",
+              "clicks": 8622,
+              "impressions": 26513,
+              "ctr": 32.52,
+              "leads": 112,
+              "purchases": 0,
+              "cpa": 51.96
+            },
+            "last_7d": {
+              "spend": 885.41,
+              "currency": "ZAR",
+              "clicks": 1975,
+              "impressions": 5165,
+              "ctr": 38.24,
+              "leads": 26,
+              "purchases": 0,
+              "cpa": 34.05
+            }
           }
         }
       ],
@@ -460,8 +727,23 @@
             "amount": 31000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 5819.83,
+            "target": 43000,
+            "pct": 14,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 885.41,
+            "target": 10033.33,
+            "pct": 9,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 5819.83,
+          "target": 43000,
           "pct": 14,
           "hasLive": true
         }
@@ -488,6 +770,28 @@
             "leads": 139,
             "purchases": 0,
             "cpa": 237.99
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 33081.16,
+              "currency": "ZAR",
+              "clicks": 7850,
+              "impressions": 183931,
+              "ctr": 4.27,
+              "leads": 139,
+              "purchases": 0,
+              "cpa": 237.99
+            },
+            "last_7d": {
+              "spend": 5832.98,
+              "currency": "ZAR",
+              "clicks": 1173,
+              "impressions": 24756,
+              "ctr": 4.74,
+              "leads": 28,
+              "purchases": 0,
+              "cpa": 208.32
+            }
           }
         }
       ],
@@ -545,8 +849,23 @@
             "amount": 7500
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 33081.16,
+            "target": 27500,
+            "pct": 120,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 5832.98,
+            "target": 6416.67,
+            "pct": 91,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 33081.16,
+          "target": 27500,
           "pct": 120,
           "hasLive": true
         }
@@ -572,6 +891,26 @@
             "ctr": 5.32,
             "conversions": 372.94,
             "cpa": 94.07
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 35083.68,
+              "currency": "ZAR",
+              "clicks": 2631,
+              "impressions": 49498,
+              "ctr": 5.32,
+              "conversions": 372.94,
+              "cpa": 94.07
+            },
+            "last_7d": {
+              "spend": 8282.88,
+              "currency": "ZAR",
+              "clicks": 613,
+              "impressions": 12524,
+              "ctr": 4.89,
+              "conversions": 80.64,
+              "cpa": 102.71
+            }
           }
         }
       ],
@@ -605,8 +944,23 @@
             "amount": 30000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 35083.68,
+            "target": 67500,
+            "pct": 52,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 8282.88,
+            "target": 15750,
+            "pct": 53,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 35083.68,
+          "target": 67500,
           "pct": 52,
           "hasLive": true
         }
@@ -632,6 +986,26 @@
             "ctr": 1.9,
             "leads": 0,
             "purchases": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 7119.52,
+              "currency": "USD",
+              "clicks": 22404,
+              "impressions": 1182033,
+              "ctr": 1.9,
+              "leads": 0,
+              "purchases": 0
+            },
+            "last_7d": {
+              "spend": 4482.46,
+              "currency": "USD",
+              "clicks": 13950,
+              "impressions": 708099,
+              "ctr": 1.97,
+              "leads": 0,
+              "purchases": 0
+            }
           }
         },
         {
@@ -648,6 +1022,26 @@
             "ctr": 3.72,
             "conversions": 2,
             "cpa": 1404.87
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 2809.73,
+              "currency": "USD",
+              "clicks": 1112,
+              "impressions": 29907,
+              "ctr": 3.72,
+              "conversions": 2,
+              "cpa": 1404.87
+            },
+            "last_7d": {
+              "spend": 2385.43,
+              "currency": "USD",
+              "clicks": 926,
+              "impressions": 25113,
+              "ctr": 3.69,
+              "conversions": 2,
+              "cpa": 1192.71
+            }
           }
         }
       ]
@@ -672,6 +1066,26 @@
             "ctr": 2.17,
             "leads": 0,
             "purchases": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 4252.96,
+              "currency": "USD",
+              "clicks": 16693,
+              "impressions": 770934,
+              "ctr": 2.17,
+              "leads": 0,
+              "purchases": 0
+            },
+            "last_7d": {
+              "spend": 445.04,
+              "currency": "USD",
+              "clicks": 2431,
+              "impressions": 73955,
+              "ctr": 3.29,
+              "leads": 0,
+              "purchases": 0
+            }
           }
         },
         {
@@ -687,6 +1101,24 @@
             "impressions": 245827,
             "ctr": 1.46,
             "conversions": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 3555.19,
+              "currency": "USD",
+              "clicks": 3597,
+              "impressions": 245827,
+              "ctr": 1.46,
+              "conversions": 0
+            },
+            "last_7d": {
+              "spend": 477.32,
+              "currency": "USD",
+              "clicks": 460,
+              "impressions": 14364,
+              "ctr": 3.2,
+              "conversions": 0
+            }
           }
         }
       ],
@@ -712,8 +1144,23 @@
             "amount": 2500
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 7808.15,
+            "target": 5100,
+            "pct": 153,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 922.36,
+            "target": 1190,
+            "pct": 78,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 7808.15,
+          "target": 5100,
           "pct": 153,
           "hasLive": true
         }
@@ -739,6 +1186,26 @@
             "ctr": 1.82,
             "leads": 0,
             "purchases": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 913.41,
+              "currency": "USD",
+              "clicks": 4028,
+              "impressions": 221920,
+              "ctr": 1.82,
+              "leads": 0,
+              "purchases": 0
+            },
+            "last_7d": {
+              "spend": 594.42,
+              "currency": "USD",
+              "clicks": 2664,
+              "impressions": 147428,
+              "ctr": 1.81,
+              "leads": 0,
+              "purchases": 0
+            }
           }
         },
         {
@@ -754,6 +1221,24 @@
             "impressions": 2840,
             "ctr": 4.08,
             "conversions": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 178.5,
+              "currency": "USD",
+              "clicks": 116,
+              "impressions": 2840,
+              "ctr": 4.08,
+              "conversions": 0
+            },
+            "last_7d": {
+              "spend": 101.27,
+              "currency": "USD",
+              "clicks": 72,
+              "impressions": 1967,
+              "ctr": 3.66,
+              "conversions": 0
+            }
           }
         }
       ],
@@ -779,8 +1264,23 @@
             "amount": 1500
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 1091.91,
+            "target": 4133,
+            "pct": 26,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 695.69,
+            "target": 964.37,
+            "pct": 72,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 1091.91,
+          "target": 4133,
           "pct": 26,
           "hasLive": true
         }
@@ -806,6 +1306,26 @@
             "ctr": 2.39,
             "leads": 0,
             "purchases": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 996.11,
+              "currency": "USD",
+              "clicks": 2554,
+              "impressions": 106835,
+              "ctr": 2.39,
+              "leads": 0,
+              "purchases": 0
+            },
+            "last_7d": {
+              "spend": 618.47,
+              "currency": "USD",
+              "clicks": 1507,
+              "impressions": 64298,
+              "ctr": 2.34,
+              "leads": 0,
+              "purchases": 0
+            }
           }
         },
         {
@@ -821,6 +1341,24 @@
             "impressions": 110627,
             "ctr": 1,
             "conversions": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 750.79,
+              "currency": "USD",
+              "clicks": 1111,
+              "impressions": 110627,
+              "ctr": 1,
+              "conversions": 0
+            },
+            "last_7d": {
+              "spend": 570.16,
+              "currency": "USD",
+              "clicks": 752,
+              "impressions": 48555,
+              "ctr": 1.55,
+              "conversions": 0
+            }
           }
         }
       ],
@@ -846,8 +1384,23 @@
             "amount": 720
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 1746.9,
+            "target": 1720,
+            "pct": 102,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 1188.63,
+            "target": 401.33,
+            "pct": 296,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 1746.9,
+          "target": 1720,
           "pct": 102,
           "hasLive": true
         }
@@ -873,6 +1426,26 @@
             "ctr": 1.65,
             "leads": 0,
             "purchases": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 2945.88,
+              "currency": "USD",
+              "clicks": 5581,
+              "impressions": 338641,
+              "ctr": 1.65,
+              "leads": 0,
+              "purchases": 0
+            },
+            "last_7d": {
+              "spend": 1747.66,
+              "currency": "USD",
+              "clicks": 3186,
+              "impressions": 210186,
+              "ctr": 1.52,
+              "leads": 0,
+              "purchases": 0
+            }
           }
         },
         {
@@ -888,6 +1461,24 @@
             "impressions": 30600,
             "ctr": 2.55,
             "conversions": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 1427.79,
+              "currency": "USD",
+              "clicks": 780,
+              "impressions": 30600,
+              "ctr": 2.55,
+              "conversions": 0
+            },
+            "last_7d": {
+              "spend": 1194.38,
+              "currency": "USD",
+              "clicks": 669,
+              "impressions": 27613,
+              "ctr": 2.42,
+              "conversions": 0
+            }
           }
         }
       ],
@@ -913,8 +1504,23 @@
             "amount": 1400
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 4373.67,
+            "target": 4720,
+            "pct": 93,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 2942.04,
+            "target": 1101.33,
+            "pct": 267,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 4373.67,
+          "target": 4720,
           "pct": 93,
           "hasLive": true
         }
@@ -941,6 +1547,28 @@
             "leads": 559,
             "purchases": 0,
             "cpa": 73.1
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 40863.35,
+              "currency": "ZAR",
+              "clicks": 21165,
+              "impressions": 603087,
+              "ctr": 3.51,
+              "leads": 559,
+              "purchases": 0,
+              "cpa": 73.1
+            },
+            "last_7d": {
+              "spend": 9052.65,
+              "currency": "ZAR",
+              "clicks": 4206,
+              "impressions": 117105,
+              "ctr": 3.59,
+              "leads": 98,
+              "purchases": 0,
+              "cpa": 92.37
+            }
           }
         },
         {
@@ -973,8 +1601,23 @@
             "amount": 20000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 40863.35,
+            "target": 40000,
+            "pct": 102,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 9052.65,
+            "target": 9333.33,
+            "pct": 97,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 40863.35,
+          "target": 40000,
           "pct": 102,
           "hasLive": true
         }
@@ -1001,6 +1644,28 @@
             "leads": 322,
             "purchases": 0,
             "cpa": 73.07
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 23529.2,
+              "currency": "ZAR",
+              "clicks": 9767,
+              "impressions": 309380,
+              "ctr": 3.16,
+              "leads": 322,
+              "purchases": 0,
+              "cpa": 73.07
+            },
+            "last_7d": {
+              "spend": 5153.98,
+              "currency": "ZAR",
+              "clicks": 2125,
+              "impressions": 59948,
+              "ctr": 3.54,
+              "leads": 66,
+              "purchases": 0,
+              "cpa": 78.09
+            }
           }
         }
       ],
@@ -1018,8 +1683,23 @@
             "amount": 25000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 23529.2,
+            "target": 25000,
+            "pct": 94,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 5153.98,
+            "target": 5833.33,
+            "pct": 88,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 23529.2,
+          "target": 25000,
           "pct": 94,
           "hasLive": true
         }
@@ -1046,6 +1726,28 @@
             "leads": 1087,
             "purchases": 0,
             "cpa": 56.08
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 60954.31,
+              "currency": "ZAR",
+              "clicks": 21690,
+              "impressions": 1196716,
+              "ctr": 1.81,
+              "leads": 1087,
+              "purchases": 0,
+              "cpa": 56.08
+            },
+            "last_7d": {
+              "spend": 13975.59,
+              "currency": "ZAR",
+              "clicks": 4459,
+              "impressions": 262966,
+              "ctr": 1.7,
+              "leads": 310,
+              "purchases": 0,
+              "cpa": 45.08
+            }
           }
         }
       ],
@@ -1071,8 +1773,23 @@
             "amount": 30000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 60954.31,
+            "target": 60000,
+            "pct": 102,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 13975.59,
+            "target": 14000,
+            "pct": 100,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 60954.31,
+          "target": 60000,
           "pct": 102,
           "hasLive": true
         }
@@ -1098,6 +1815,26 @@
             "ctr": 15.41,
             "conversions": 40,
             "cpa": 81.19
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 3247.48,
+              "currency": "GBP",
+              "clicks": 561,
+              "impressions": 3640,
+              "ctr": 15.41,
+              "conversions": 40,
+              "cpa": 81.19
+            },
+            "last_7d": {
+              "spend": 995.95,
+              "currency": "GBP",
+              "clicks": 151,
+              "impressions": 1113,
+              "ctr": 13.57,
+              "conversions": 7,
+              "cpa": 142.28
+            }
           }
         }
       ],
@@ -1115,8 +1852,23 @@
             "amount": 5000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 0,
+            "target": 5000,
+            "pct": 0,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 0,
+            "target": 1166.67,
+            "pct": 0,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 0,
+          "target": 5000,
           "pct": 0,
           "hasLive": true
         }
@@ -1142,6 +1894,17 @@
             "ctr": 2.53,
             "leads": 0,
             "purchases": 0
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 4439.51,
+              "currency": "ZAR",
+              "clicks": 2687,
+              "impressions": 106315,
+              "ctr": 2.53,
+              "leads": 0,
+              "purchases": 0
+            }
           }
         },
         {
@@ -1159,6 +1922,28 @@
             "conversions": 3311.63,
             "cpa": 75.27,
             "roas": 13.43
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 249266.38,
+              "currency": "ZAR",
+              "clicks": 26959,
+              "impressions": 439483,
+              "ctr": 6.13,
+              "conversions": 3311.63,
+              "cpa": 75.27,
+              "roas": 13.43
+            },
+            "last_7d": {
+              "spend": 29271.47,
+              "currency": "ZAR",
+              "clicks": 3792,
+              "impressions": 55198,
+              "ctr": 6.87,
+              "conversions": 318.79,
+              "cpa": 91.82,
+              "roas": 10.8
+            }
           }
         }
       ],
@@ -1176,8 +1961,23 @@
             "amount": 280000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 253705.89,
+            "target": 280000,
+            "pct": 91,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 29271.47,
+            "target": 65333.33,
+            "pct": 45,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 253705.89,
+          "target": 280000,
           "pct": 91,
           "hasLive": true
         }
@@ -1204,6 +2004,28 @@
             "purchases": 107,
             "cpa": 287.73,
             "roas": 17.1
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 30787.16,
+              "currency": "ZAR",
+              "clicks": 13370,
+              "impressions": 1964630,
+              "ctr": 0.68,
+              "purchases": 107,
+              "cpa": 287.73,
+              "roas": 17.1
+            },
+            "last_7d": {
+              "spend": 15769.24,
+              "currency": "ZAR",
+              "clicks": 6724,
+              "impressions": 777145,
+              "ctr": 0.87,
+              "purchases": 86,
+              "cpa": 183.36,
+              "roas": 25.97
+            }
           }
         },
         {
@@ -1252,8 +2074,23 @@
             "amount": 7500
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 30787.16,
+            "target": 30000,
+            "pct": 103,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 15769.24,
+            "target": 7000,
+            "pct": 225,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 30787.16,
+          "target": 30000,
           "pct": 103,
           "hasLive": true
         }
@@ -1280,6 +2117,28 @@
             "purchases": 5,
             "cpa": 2060.39,
             "roas": 0.27
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 10301.95,
+              "currency": "ZAR",
+              "clicks": 14401,
+              "impressions": 809556,
+              "ctr": 1.78,
+              "purchases": 5,
+              "cpa": 2060.39,
+              "roas": 0.27
+            },
+            "last_7d": {
+              "spend": 1556.22,
+              "currency": "ZAR",
+              "clicks": 1704,
+              "impressions": 46766,
+              "ctr": 3.64,
+              "purchases": 2,
+              "cpa": 778.11,
+              "roas": 0.96
+            }
           }
         },
         {
@@ -1294,6 +2153,16 @@
             "impressions": 0,
             "conversions": 347.85,
             "cpa": 42.46
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 14768.69,
+              "currency": "ZAR",
+              "clicks": 0,
+              "impressions": 0,
+              "conversions": 347.85,
+              "cpa": 42.46
+            }
           }
         }
       ],
@@ -1319,8 +2188,23 @@
             "amount": 10000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 25070.64,
+            "target": 20000,
+            "pct": 125,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 1556.22,
+            "target": 4666.67,
+            "pct": 33,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 25070.64,
+          "target": 20000,
           "pct": 125,
           "hasLive": true
         }
@@ -1346,6 +2230,26 @@
             "ctr": 9.18,
             "conversions": 19.46,
             "cpa": 151.86
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 2955.14,
+              "currency": "USD",
+              "clicks": 1570,
+              "impressions": 17098,
+              "ctr": 9.18,
+              "conversions": 19.46,
+              "cpa": 151.86
+            },
+            "last_7d": {
+              "spend": 714.25,
+              "currency": "USD",
+              "clicks": 281,
+              "impressions": 2512,
+              "ctr": 11.19,
+              "conversions": 7.92,
+              "cpa": 90.18
+            }
           }
         }
       ]
@@ -1371,6 +2275,26 @@
             "ctr": 6.1,
             "conversions": 95.5,
             "cpa": 676.79
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 64633.54,
+              "currency": "ZAR",
+              "clicks": 24810,
+              "impressions": 406992,
+              "ctr": 6.1,
+              "conversions": 95.5,
+              "cpa": 676.79
+            },
+            "last_7d": {
+              "spend": 20851.67,
+              "currency": "ZAR",
+              "clicks": 7586,
+              "impressions": 102748,
+              "ctr": 7.38,
+              "conversions": 70.47,
+              "cpa": 295.89
+            }
           }
         }
       ],
@@ -1404,8 +2328,23 @@
             "amount": 20000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 64633.54,
+            "target": 66000,
+            "pct": 98,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 20851.67,
+            "target": 15400,
+            "pct": 135,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 64633.54,
+          "target": 66000,
           "pct": 98,
           "hasLive": true
         }
@@ -1464,6 +2403,26 @@
             "ctr": 10.43,
             "conversions": 76,
             "cpa": 125.29
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 9522.22,
+              "currency": "ZAR",
+              "clicks": 445,
+              "impressions": 4265,
+              "ctr": 10.43,
+              "conversions": 76,
+              "cpa": 125.29
+            },
+            "last_7d": {
+              "spend": 1891.24,
+              "currency": "ZAR",
+              "clicks": 117,
+              "impressions": 1131,
+              "ctr": 10.34,
+              "conversions": 19,
+              "cpa": 99.54
+            }
           }
         }
       ],
@@ -1481,8 +2440,23 @@
             "amount": 10000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 9522.22,
+            "target": 10000,
+            "pct": 95,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 1891.24,
+            "target": 2333.33,
+            "pct": 81,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 9522.22,
+          "target": 10000,
           "pct": 95,
           "hasLive": true
         }
@@ -1509,6 +2483,26 @@
             "ctr": 8.66,
             "conversions": 27,
             "cpa": 430.9
+          },
+          "metricsByRange": {
+            "mtd": {
+              "spend": 11634.21,
+              "currency": "ZAR",
+              "clicks": 982,
+              "impressions": 11338,
+              "ctr": 8.66,
+              "conversions": 27,
+              "cpa": 430.9
+            },
+            "last_7d": {
+              "spend": 1921.91,
+              "currency": "ZAR",
+              "clicks": 208,
+              "impressions": 1332,
+              "ctr": 15.62,
+              "conversions": 17,
+              "cpa": 113.05
+            }
           }
         }
       ],
@@ -1534,8 +2528,23 @@
             "amount": 4000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "spend": 11634.21,
+            "target": 16000,
+            "pct": 73,
+            "hasLive": true
+          },
+          "last_7d": {
+            "spend": 1921.91,
+            "target": 3733.33,
+            "pct": 51,
+            "hasLive": true
+          }
+        },
         "pacing": {
           "spend": 11634.21,
+          "target": 16000,
           "pct": 73,
           "hasLive": true
         }
@@ -1569,6 +2578,14 @@
             "amount": 5000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }
@@ -1602,6 +2619,14 @@
             "amount": 5000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }
@@ -1657,6 +2682,14 @@
             "amount": 500
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }
@@ -1712,6 +2745,14 @@
             "amount": 21000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }
@@ -1759,6 +2800,14 @@
             "amount": 5000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }
@@ -1792,6 +2841,14 @@
             "amount": 8000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }
@@ -1839,6 +2896,14 @@
             "amount": 7000
           }
         ],
+        "pacingByRange": {
+          "mtd": {
+            "hasLive": false
+          },
+          "last_7d": {
+            "hasLive": false
+          }
+        },
         "pacing": {
           "hasLive": false
         }

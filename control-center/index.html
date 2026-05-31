@@ -106,6 +106,16 @@
     .budgetline:first-of-type { border-top: none; margin-top: 6px; }
     .budgetline .bl-meta { color: var(--muted); font-size: 11px; }
     .empty { color: var(--muted); font-size: 13px; padding: 20px; text-align:center; }
+    .rangesel { display:inline-flex; background: var(--panel-2); border:1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; }
+    .rangesel button { background: transparent; border: none; color: var(--muted); font-size: 12.5px; font-weight: 600; padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+    .rangesel button.active { background: var(--accent); color: #fff; }
+    .gate { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 100; }
+    .gate .box { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 30px; width: min(360px, 90%); text-align: center; }
+    .gate h2 { margin: 0 0 6px; font-size: 18px; }
+    .gate p { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+    .gate input { width: 100%; background: var(--panel-2); border: 1px solid var(--line); color: var(--txt); border-radius: 10px; padding: 11px 13px; font-size: 14px; }
+    .gate button { width: 100%; margin-top: 12px; background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 11px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .gate .err { color: var(--crit); font-size: 12px; margin-top: 10px; min-height: 14px; }
     .foot { color: var(--muted); font-size: 12px; margin-top: 26px; text-align:center; line-height:1.6; }
     .loaderr { background: rgba(255,176,46,.1); border:1px solid var(--warn); color:#ffd699; padding:14px 16px; border-radius:12px; font-size:13px; }
   </style>
@@ -160,9 +170,11 @@
       );
     }
 
-    function Pace({ budget }) {
+    function Pace({ budget, range }) {
       if (!budget) return null;
-      if (!budget.pacing || !budget.pacing.hasLive) {
+      const p = (budget.pacingByRange && budget.pacingByRange[range]) || budget.pacing;
+      const denom = range === "last_7d" && p && p.target != null ? p.target : budget.monthly;
+      if (!p || !p.hasLive) {
         return (
           <div className="pace">
             <div className="pace-top"><span>budget</span><b>{money(budget.monthly, budget.currency)}</b></div>
@@ -170,17 +182,17 @@
           </div>
         );
       }
-      const pct = budget.pacing.pct;
+      const pct = p.pct;
       const cls = pct >= 110 ? "over" : pct < 60 ? "under" : "ok";
       return (
-        <div className={"pace " + cls} title="Last-30d spend vs monthly budget">
-          <div className="pace-top"><span>{pct}%</span><b>{money(budget.pacing.spend, budget.currency)}/{money(budget.monthly, budget.currency)}</b></div>
+        <div className={"pace " + cls} title={range === "last_7d" ? "Last-7d spend vs pro-rata weekly target" : "Month-to-date spend vs monthly budget"}>
+          <div className="pace-top"><span>{pct}%</span><b>{money(p.spend, budget.currency)}/{money(denom, budget.currency)}</b></div>
           <div className="pacebar"><i style={{ width: Math.min(100, pct) + "%" }}></i></div>
         </div>
       );
     }
 
-    function ClientRow({ client, alerts, onClick }) {
+    function ClientRow({ client, alerts, onClick, range }) {
       const h = healthFor(client, alerts);
       const colors = { crit: "var(--crit)", warn: "var(--warn)", ok: "var(--ok)", pending: "var(--muted)" };
       const mine = alerts.filter(a => a.clientId === client.id);
@@ -196,7 +208,7 @@
             </div>
           </div>
           <div className="c-right">
-            <Pace budget={client.budget} />
+            <Pace budget={client.budget} range={range} />
             <div className="chips">
               {client.platforms.map((p,i) => (
                 <span key={i} className={"chip " + p.platform + (p.status === "error" ? " err" : "")}>
@@ -213,7 +225,7 @@
       );
     }
 
-    function Drawer({ client, alerts, onClose }) {
+    function Drawer({ client, alerts, onClose, range }) {
       const mine = alerts.filter(a => a.clientId === client.id).sort((x,y)=>SEV_ORDER[x.severity]-SEV_ORDER[y.severity]);
       return (
         <div className="drawer-bg" onClick={onClose}>
@@ -228,8 +240,8 @@
                   <div style={{color:"var(--muted)", fontSize:12, textTransform:"uppercase", letterSpacing:".5px"}}>Monthly budget</div>
                   <div className="bb-total">{money(client.budget.monthly, client.budget.currency)}</div>
                 </div>
-                {client.budget.pacing && client.budget.pacing.hasLive
-                  ? <div style={{marginTop:10}}><Pace budget={client.budget} /></div>
+                {client.budget.pacingByRange && client.budget.pacingByRange[range] && client.budget.pacingByRange[range].hasLive
+                  ? <div style={{marginTop:10}}><Pace budget={client.budget} range={range} /></div>
                   : <div className="a-detail" style={{marginTop:8, color:"var(--muted)"}}>Pacing appears once live spend is linked to this account.</div>}
                 {client.budget.lines.map((l, i) => (
                   <div className="budgetline" key={i}>
@@ -241,26 +253,33 @@
             )}
 
             <h2 style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:".6px"}}>Accounts</h2>
-            {client.platforms.map((p, i) => (
+            {client.platforms.map((p, i) => {
+              const m = p.metricsByRange ? p.metricsByRange[range] : null;
+              return (
               <div className="acct" key={i}>
                 <div className="a-top">
                   <div><span className={"chip " + p.platform}>{p.platform === "meta" ? "Meta" : "Google Ads"}</span> <span className="mono">{p.accountId}</span></div>
                   <span className={"statusbadge " + p.status}>{p.status}</span>
                 </div>
                 {p.error && <div className="a-detail" style={{color:"#ffb3ba", marginTop:8}}>{p.error}</div>}
-                {p.metrics && (
+                {m ? (
                   <div className="metrics">
-                    {p.metrics.spend != null && <div className="m"><div className="mk">Spend 30d</div><div className="mv">{money(p.metrics.spend, p.metrics.currency)}</div></div>}
-                    {p.metrics.conversions != null && <div className="m"><div className="mk">Conv</div><div className="mv">{fmt(p.metrics.conversions)}</div></div>}
-                    {p.metrics.leads != null && <div className="m"><div className="mk">Leads</div><div className="mv">{fmt(p.metrics.leads)}</div></div>}
-                    {p.metrics.purchases != null && <div className="m"><div className="mk">Purchases</div><div className="mv">{fmt(p.metrics.purchases)}</div></div>}
-                    {p.metrics.clicks != null && <div className="m"><div className="mk">Clicks</div><div className="mv">{fmt(p.metrics.clicks)}</div></div>}
-                    {p.metrics.activeCampaigns != null && <div className="m"><div className="mk">Active campaigns</div><div className="mv">{fmt(p.metrics.activeCampaigns)}</div></div>}
+                    {m.spend != null && <div className="m"><div className="mk">Spend</div><div className="mv">{money(m.spend, m.currency)}</div></div>}
+                    {m.leads != null && <div className="m"><div className="mk">Leads</div><div className="mv">{fmt(m.leads)}</div></div>}
+                    {m.purchases != null && <div className="m"><div className="mk">Purchases</div><div className="mv">{fmt(m.purchases)}</div></div>}
+                    {m.conversions != null && <div className="m"><div className="mk">Conv</div><div className="mv">{fmt(m.conversions)}</div></div>}
+                    {m.cpa != null && <div className="m"><div className="mk">CPA</div><div className="mv">{money(m.cpa, m.currency)}</div></div>}
+                    {m.roas != null && <div className="m"><div className="mk">ROAS</div><div className="mv">{m.roas}×</div></div>}
+                    {m.ctr != null && <div className="m"><div className="mk">CTR</div><div className="mv">{m.ctr}%</div></div>}
+                    {m.clicks != null && <div className="m"><div className="mk">Clicks</div><div className="mv">{fmt(m.clicks)}</div></div>}
+                  </div>
+                ) : (
+                  <div className="a-detail" style={{marginTop:8, color:"var(--muted)"}}>
+                    {p.status === "pending" ? "Awaiting account link / next refresh." : "No spend in this date range."}
                   </div>
                 )}
-                {p.status === "pending" && <div className="a-detail" style={{marginTop:8, color:"var(--muted)"}}>Awaiting next daily refresh.</div>}
               </div>
-            ))}
+            );})}
 
             <h2 style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:".6px", marginTop:20}}>Alerts ({mine.length})</h2>
             {mine.length ? mine.map(a => <AlertCard key={a.id} a={a} />) : <div className="empty">No active alerts for this client.</div>}
@@ -278,6 +297,7 @@
       const [sev, setSev] = useState("all");
       const [cat, setCat] = useState("all");
       const [sel, setSel] = useState(null);
+      const [range, setRange] = useState("mtd");
 
       useEffect(() => {
         // Standalone build: data is embedded on window.__CC_DATA__ so the file works offline.
@@ -312,6 +332,9 @@
       if (!snapshot) return <div className="wrap"><div className="empty">Loading control center…</div></div>;
 
       const ac = snapshot.alertCounts;
+      const ranges = snapshot.ranges || [{ id: "mtd", label: "Month-to-date" }];
+      const rangeLabel = (ranges.find(r => r.id === range) || ranges[0]).label;
+      const liveSpend = (snapshot.liveSpendByRange && snapshot.liveSpendByRange[range]) || snapshot.liveSpend;
       return (
         <div className="wrap">
           <header className="top">
@@ -319,9 +342,15 @@
               <h1>Client Control Center</h1>
               <p>{snapshot.agency} · Google Ads + Meta via Campaign Forge</p>
             </div>
-            <div className="refresh">
-              Last refresh <b>{new Date(snapshot.lastRefresh).toLocaleString()}</b><br/>
-              Window: {snapshot.refreshWindow} · {snapshot.dataRange.start} → {snapshot.dataRange.end}
+            <div style={{display:"flex", flexDirection:"column", alignItems:"flex-end", gap:8}}>
+              <div className="rangesel">
+                {ranges.map(r => (
+                  <button key={r.id} className={range === r.id ? "active" : ""} onClick={() => setRange(r.id)}>{r.label}</button>
+                ))}
+              </div>
+              <div className="refresh">
+                Last refresh <b>{new Date(snapshot.lastRefresh).toLocaleString()}</b> · Showing <b>{rangeLabel}</b>
+              </div>
             </div>
           </header>
 
@@ -329,8 +358,8 @@
             <KPI label="Clients" val={snapshot.totals.clients} sub={`${snapshot.totals.adAccounts} ad accounts`} />
             <KPI label="Live accounts" val={snapshot.totals.accountsLive}
               sub={`${snapshot.totals.accountsPending} pending · ${snapshot.totals.accountsError} error`} />
-            {snapshot.liveSpend.map((s,i) => (
-              <KPI key={i} label={`Live spend · ${s.currency}`} val={money(s.spend, s.currency)} sub={s.label + " (30d)"} />
+            {liveSpend.map((s,i) => (
+              <KPI key={i} label={`Live spend · ${s.currency}`} val={money(s.spend, s.currency)} sub={rangeLabel} />
             ))}
             {snapshot.monthlyBudget && snapshot.monthlyBudget.length > 0 && (
               <KPI label="Monthly budget" val={money(snapshot.monthlyBudget[0].amount, snapshot.monthlyBudget[0].currency)}
@@ -369,7 +398,7 @@
               {Object.keys(groups).length ? Object.entries(groups).map(([g, list]) => (
                 <div className="group" key={g}>
                   <div className="g-name">{g} · {list.length}</div>
-                  {list.map(c => <ClientRow key={c.id} client={c} alerts={alerts} onClick={()=>setSel(c)} />)}
+                  {list.map(c => <ClientRow key={c.id} client={c} alerts={alerts} range={range} onClick={()=>setSel(c)} />)}
                 </div>
               )) : <div className="empty">No clients match.</div>}
             </div>
@@ -380,12 +409,39 @@
             <span className="badge live">live</span> = pulled from the API this run · <span className="badge sample">sample</span> = rule placeholder shown until enough history accrues.
           </div>
 
-          {sel && <Drawer client={sel} alerts={alerts} onClose={()=>setSel(null)} />}
+          {sel && <Drawer client={sel} alerts={alerts} range={range} onClose={()=>setSel(null)} />}
         </div>
       );
     }
 
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    // Lightweight access gate. Client-side only — a deterrent for an internal
+    // link, NOT real authentication (see README). Password is obfuscated, not secure.
+    const GATE_KEY = "MTJjYW1wYWlnbmZvcmdlMzQ=";
+    function AuthGate({ children }) {
+      const [ok, setOk] = useState(() => sessionStorage.getItem("cc_auth") === "1");
+      const [val, setVal] = useState("");
+      const [err, setErr] = useState("");
+      if (ok) return children;
+      const submit = (e) => {
+        e.preventDefault();
+        if (btoa(val) === GATE_KEY) { sessionStorage.setItem("cc_auth", "1"); setOk(true); }
+        else setErr("Incorrect password.");
+      };
+      return (
+        <div className="gate">
+          <form className="box" onSubmit={submit}>
+            <h2>Client Control Center</h2>
+            <p>ROI Solutions · internal access</p>
+            <input type="password" autoFocus placeholder="Password" value={val}
+              onChange={e => { setVal(e.target.value); setErr(""); }} />
+            <button type="submit">View dashboard</button>
+            <div className="err">{err}</div>
+          </form>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<AuthGate><App /></AuthGate>);
   </script>
 </body>
 </html>

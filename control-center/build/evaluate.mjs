@@ -29,32 +29,50 @@ const ZERO_CONV_MIN_META_INFO = { USD: 1000, ZAR: 6000, GBP: 800 };
 const num = (v) => (v == null ? null : Number(v));
 const round = (v, d = 2) => (v == null ? null : Number(v.toFixed(d)));
 
-// ---- 1. Attach metrics + status to each platform -------------------------
+// Date ranges shown in the UI. 'mtd' uses the 30-day pull (≈ month-to-date at
+// month-end); 'last_7d' uses the 7-day pull. The daily job can add a true
+// this_month pull later without code changes (just add a source here).
+const sevenDay = read("build/accounts.7d.json").accounts;
+const RANGES = { mtd: live, last_7d: sevenDay };
+const RANGE_META = [
+  { id: "mtd", label: "Month-to-date" },
+  { id: "last_7d", label: "Last 7 days" },
+];
+
+function computeMetrics(row) {
+  const conv = num(row.conversions), leads = num(row.leads), purch = num(row.purchases);
+  const totalConv = (conv || 0) + (leads || 0) + (purch || 0);
+  let roas = num(row.roas);
+  if (roas == null && row.conversionsValue != null && row.conversionsValue > row.spend) {
+    roas = round(row.conversionsValue / row.spend);
+  }
+  const cpa = totalConv > 0 ? round(row.spend / totalConv) : null;
+  const m = {
+    spend: round(row.spend), currency: row.currency,
+    clicks: num(row.clicks), impressions: num(row.impressions), ctr: num(row.ctr),
+    conversions: conv, leads, purchases: purch, cpa, roas,
+  };
+  for (const k of Object.keys(m)) if (m[k] == null) delete m[k];
+  return m;
+}
+
+// ---- 1. Attach per-range metrics + status to each platform ---------------
 for (const c of roster.clients) {
   for (const p of c.platforms) {
-    const row = live[p.accountId];
-    if (!row) { p.status = "pending"; delete p.metrics; continue; }
-    if (row.status === "error") { p.status = "error"; p.error = row.error; delete p.metrics; continue; }
+    const mtdRow = live[p.accountId];
+    if (!mtdRow) p.status = "pending";
+    else if (mtdRow.status === "error") { p.status = "error"; p.error = mtdRow.error; }
+    else p.status = "live";
 
-    const conv = num(row.conversions);
-    const leads = num(row.leads);
-    const purch = num(row.purchases);
-    const totalConv = (conv || 0) + (leads || 0) + (purch || 0);
-    let roas = num(row.roas);
-    if (roas == null && row.conversionsValue != null && row.conversionsValue > row.spend) {
-      roas = round(row.conversionsValue / row.spend);
+    p.metricsByRange = {};
+    for (const [rid, src] of Object.entries(RANGES)) {
+      const row = src[p.accountId];
+      if (row && row.status !== "error" && row.spend != null) p.metricsByRange[rid] = computeMetrics(row);
     }
-    const cpa = totalConv > 0 ? round(row.spend / totalConv) : null;
-
-    p.status = "live";
-    p.metrics = {
-      spend: round(row.spend), currency: row.currency,
-      clicks: num(row.clicks), impressions: num(row.impressions), ctr: num(row.ctr),
-      conversions: conv, leads, purchases: purch,
-      cpa, roas,
-    };
-    // strip nulls for a clean file
-    for (const k of Object.keys(p.metrics)) if (p.metrics[k] == null) delete p.metrics[k];
+    if (Object.keys(p.metricsByRange).length === 0) delete p.metricsByRange;
+    // alias mtd metrics for the alert rules below (which read p.metrics)
+    if (p.metricsByRange && p.metricsByRange.mtd) p.metrics = p.metricsByRange.mtd;
+    else delete p.metrics;
   }
 }
 
@@ -78,14 +96,19 @@ for (const e of budgets) {
     monthly: round(e.lines.reduce((s, l) => s + l.amount, 0)),
     lines: e.lines,
   };
-  // pacing: last_30d ~= one month. Compare live spend (same currency) to monthly budget.
-  const liveSpend = c.platforms
-    .filter((p) => p.status === "live" && p.metrics.currency === e.currency)
-    .reduce((s, p) => s + p.metrics.spend, 0);
-  const hasLive = c.platforms.some((p) => p.status === "live");
-  c.budget.pacing = hasLive
-    ? { spend: round(liveSpend), pct: Math.round((liveSpend / c.budget.monthly) * 100), hasLive: true }
-    : { hasLive: false };
+  // pacing per range: mtd vs monthly budget; last_7d vs pro-rata weekly target.
+  c.budget.pacingByRange = {};
+  for (const rid of Object.keys(RANGES)) {
+    const liveSpend = c.platforms
+      .filter((p) => p.metricsByRange?.[rid]?.currency === e.currency)
+      .reduce((s, p) => s + p.metricsByRange[rid].spend, 0);
+    const hasLive = c.platforms.some((p) => p.metricsByRange?.[rid]);
+    const target = rid === "last_7d" ? (c.budget.monthly / 30) * 7 : c.budget.monthly;
+    c.budget.pacingByRange[rid] = hasLive
+      ? { spend: round(liveSpend), target: round(target), pct: Math.round((liveSpend / target) * 100), hasLive: true }
+      : { hasLive: false };
+  }
+  c.budget.pacing = c.budget.pacingByRange.mtd; // alert rules read mtd pacing
 }
 
 // ---- 2. Evaluate daily (account-level) rules -----------------------------
@@ -224,6 +247,16 @@ for (const p of flatPlatforms) {
   if (p.status === "live") byCurrency[p.metrics.currency] = (byCurrency[p.metrics.currency] || 0) + p.metrics.spend;
 }
 const curLabel = { ZAR: "South Africa & UK clients", USD: "International (Wines U)", GBP: "UK" };
+const liveSpendForRange = (rid) => {
+  const acc = {};
+  for (const p of flatPlatforms) {
+    const m = p.metricsByRange?.[rid];
+    if (m) acc[m.currency] = (acc[m.currency] || 0) + m.spend;
+  }
+  return Object.entries(acc).map(([currency, spend]) => ({
+    currency, spend: round(spend), label: curLabel[currency] || currency,
+  })).sort((a, b) => b.spend - a.spend);
+};
 const snapshot = {
   agency: "ROI Solutions / Shift One Digital",
   lastRefresh: new Date("2026-05-31T06:30:00Z").toISOString(),
@@ -238,9 +271,9 @@ const snapshot = {
     accountsPending: flatPlatforms.filter((p) => p.status === "pending").length,
     accountsError: flatPlatforms.filter((p) => p.status === "error").length,
   },
-  liveSpend: Object.entries(byCurrency).map(([currency, spend]) => ({
-    currency, spend: round(spend), label: curLabel[currency] || currency,
-  })).sort((a, b) => b.spend - a.spend),
+  ranges: RANGE_META,
+  liveSpend: liveSpendForRange("mtd"),
+  liveSpendByRange: { mtd: liveSpendForRange("mtd"), last_7d: liveSpendForRange("last_7d") },
   monthlyBudget: Object.entries(
     roster.clients.reduce((acc, c) => {
       if (c.budget) acc[c.budget.currency] = (acc[c.budget.currency] || 0) + c.budget.monthly;
