@@ -23,3 +23,6 @@ video/
 *~
 .idea/
 .vscode/
+
+# Static site build output
+_site/
