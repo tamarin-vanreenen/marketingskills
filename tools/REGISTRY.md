@@ -61,6 +61,7 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | meta-ads | Ads | ✓ | - | [✓](clis/meta-ads.js) | ✓ | [meta-ads.md](integrations/meta-ads.md) |
 | linkedin-ads | Ads | ✓ | - | [✓](clis/linkedin-ads.js) | - | [linkedin-ads.md](integrations/linkedin-ads.md) |
 | tiktok-ads | Ads | ✓ | - | [✓](clis/tiktok-ads.js) | ✓ | [tiktok-ads.md](integrations/tiktok-ads.md) |
+| campaign-forge | Ads Integration Layer | - | ✓ | - | - | [campaign-forge.md](integrations/campaign-forge.md) |
 | zapier | Automation | ✓ | ✓ | [✓](clis/zapier.js) | - | [zapier.md](integrations/zapier.md) |
 | hotjar | CRO | ✓ | - | [✓](clis/hotjar.js) | - | [hotjar.md](integrations/hotjar.md) |
 | optimizely | A/B Testing | ✓ | - | [✓](clis/optimizely.js) | ✓ | [optimizely.md](integrations/optimizely.md) |
@@ -190,8 +191,9 @@ Paid advertising platforms and campaign management.
 | **meta-ads** | Demand gen, visual products, B2C | - |
 | **linkedin-ads** | B2B, job title targeting | - |
 | **tiktok-ads** | Younger demographics, video | - |
+| **campaign-forge** | Cross-platform paid media reporting + audit | ✓ |
 
-**Agent recommendation**: Google Ads for search intent. Meta for demand generation. LinkedIn for B2B.
+**Agent recommendation**: Google Ads for search intent. Meta for demand generation. LinkedIn for B2B. Use **Campaign Forge** when you need to read and analyze performance across Google Ads, Meta, LinkedIn, and GA4 from a single MCP connector, or to diagnose a cross-channel performance drop.
 
 ### Automation
 
@@ -431,6 +433,7 @@ These tools have Model Context Protocol servers available, enabling direct agent
 - **outreach** - Sales engagement sequences
 - **crossbeam** - Partner ecosystem data
 - **introw** - Partner relationship management
+- **campaign-forge** - Cross-platform paid media (Google Ads, Meta, LinkedIn) + GA4 reporting and audit
 
 To use MCP tools, ensure the appropriate MCP server is configured in your environment.
 
