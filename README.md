@@ -72,6 +72,8 @@ See each skill's **Related Skills** section for the full dependency map.
 | [lead-magnets](skills/lead-magnets/) | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the... |
 | [li-comment](skills/li-comment/) | >- |
 | [li-post](skills/li-post/) | >- |
+| [li-profile](skills/li-profile/) | >- |
+| [li-reply](skills/li-reply/) | >- |
 | [marketing-ideas](skills/marketing-ideas/) | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the... |
 | [marketing-psychology](skills/marketing-psychology/) | When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when... |
 | [onboarding-cro](skills/onboarding-cro/) | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also... |
