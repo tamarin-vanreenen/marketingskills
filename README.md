@@ -70,9 +70,12 @@ See each skill's **Related Skills** section for the full dependency map.
 | [free-tool-strategy](skills/free-tool-strategy/) | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or... |
 | [launch-strategy](skills/launch-strategy/) | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user... |
 | [lead-magnets](skills/lead-magnets/) | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the... |
+| [li-audit](skills/li-audit/) | >- |
 | [li-carousel](skills/li-carousel/) | >- |
 | [li-comment](skills/li-comment/) | >- |
+| [li-dm](skills/li-dm/) | >- |
 | [li-human](skills/li-human/) | >- |
+| [li-inbox](skills/li-inbox/) | >- |
 | [li-plan](skills/li-plan/) | >- |
 | [li-post](skills/li-post/) | >- |
 | [li-profile](skills/li-profile/) | >- |
