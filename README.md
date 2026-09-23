@@ -77,6 +77,7 @@ See each skill's **Related Skills** section for the full dependency map.
 | [li-post](skills/li-post/) | >- |
 | [li-profile](skills/li-profile/) | >- |
 | [li-reply](skills/li-reply/) | >- |
+| [li-repurpose](skills/li-repurpose/) | >- |
 | [marketing-ideas](skills/marketing-ideas/) | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the... |
 | [marketing-psychology](skills/marketing-psychology/) | When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when... |
 | [onboarding-cro](skills/onboarding-cro/) | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also... |
