@@ -71,6 +71,8 @@ See each skill's **Related Skills** section for the full dependency map.
 | [launch-strategy](skills/launch-strategy/) | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user... |
 | [lead-magnets](skills/lead-magnets/) | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the... |
 | [li-comment](skills/li-comment/) | >- |
+| [li-human](skills/li-human/) | >- |
+| [li-plan](skills/li-plan/) | >- |
 | [li-post](skills/li-post/) | >- |
 | [li-profile](skills/li-profile/) | >- |
 | [li-reply](skills/li-reply/) | >- |
